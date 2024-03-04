@@ -47,7 +47,7 @@
           </div>
           @enderror
 
-        <button type="submit" class="div-5 btn btn-danger btn-block mb-4">REGISTER</button>
+        <button type="submit" class="div-4 btn btn-danger btn-block mb-4">REGISTER</button>
       </form>
       <a href="{{ route("login") }}" style="font-size: larger; color: red">Already have an account?</a>
     </div>

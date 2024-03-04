@@ -21,8 +21,8 @@
                         <img src="assets/Profile2.png" alt="Prof" class="rounded-circle" style="width: auto; height: 80px; object-fit: cover;">
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="Super.html">Profile</a></li>
-                        <li><a class="dropdown-item" href="{{ route('logout') }}">Log Out</a></li>
+                        <li><a class="dropdown-item" style="font-size: 25px" href="Super.html">Profile</a></li>
+                        <li><a class="dropdown-item" style="font-size: 25px" href="{{ route('logout') }}">Log Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -85,59 +85,81 @@
         </div>
       </div>
     </div>
+
     <div class="div-22">
       <div class="div-23">Start Managing your SOP Documents</div>
-      <div class="div-24">
-        <img
+
+
+
+    <div class="div-24">
+    <form class="div-24" role="search">
+      <input class="form-control me-2" style="height: 50px"  type="search" placeholder="Search" aria-label="Search">
+    </form>
+    <table class="table table-hover transparent-table text-center">
+      <thead class="table table-danger">
+           <tr>
+              <th scope="col">Doc. Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Timestamp</th>
+              <th scope="col">Action</th>
+           </tr>
+      </thead>
+      <tbody>
+          <tr class="">
+              <td>Abc</td>
+              <td>defghijklmnop</td>
+              <td>2023-03-02</td>
+              <td>
+                <a href="#"><img src="assets/View.png" alt="Logo" style="width: auto; height: 20px; object-fit: cover;"></a>
+                <a href="#"><img src="assets/Delete.png" alt="Logo" style="width: auto; height: 20px; object-fit: cover;"></a>
+              </td>
+          </tr>
+          <tr>
+              <td>123</td>
+              <td>qrstuvwxyz</td>
+              <td>2023-03-02</td>
+              <td>
+                <a href="#"><img src="assets/View.png" alt="Logo" style="width: auto; height: 20px; object-fit: cover;"></a>
+                <a href="#"><img src="assets/Delete.png" alt="Logo" style="width: auto; height: 20px; object-fit: cover;"></a>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+        <a href ="#" class="img-8"><img
           loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/14701cedbf819ecd8f72f8a06ad0679a3b1f78da2d0c584e8ff9bc3c4031c49f?"
-          class="img-6"
-        />
-        <div class="div-25">
-          <div class="div-26">
-            <div class="div-27">Title</div>
-            <div class="div-28">Description</div>
-            <div class="div-29">Timestamp</div>
-            <div class="div-30">Actions</div>
-          </div>
-        </div>
-        <div class="div-31">
-          <div class="div-32">
-            <div class="div-33">Abc</div>
-            <div class="div-34">defghijklmnop</div>
-          </div>
-          <div class="div-35">
-            <div class="div-36">2023-02-29</div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c7ec11ed640dd3f7ba4d7dada438a1033c77c78e0be2238f5a0c8543ad7db8c0?"
-              class="img-7"
-            />
-          </div>
-        </div>
-        <div class="div-37"></div>
-        <div class="div-38"></div>
-        <div class="div-39"></div>
-        <div class="div-40"></div>
-        <div class="div-41"></div>
-        <div class="div-42"></div>
-        <div class="div-43"></div>
-        <div class="div-44"></div>
-        <div class="div-45"></div>
-        <div class="div-46"></div>
-        <div class="div-47"></div>
-        <div class="div-48"></div>
-        <div class="div-49"></div>
-        <div class="div-50"></div>
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/f8a36404a64aa61db56cbd9e51232bd85be79eca7cfaf814fef0723d03747c3d?"
-          class="img-8"
-        />
+          src="/assets/Button.png" style="height:90px; width:auto;"
+        /></a>
       </div>
     </div>
   </div>
+
   <style>
+    .transparent-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: transparent;
+      
+    }
+
+    .transparent-table td {
+      color: White;
+      padding: 10px;
+      background-color: transparent;
+      border-bottom: 1px solid #ffff;
+      border-collapse: separate;
+      border: none;
+      border-bottom: 2px solid #ffff;
+    }
+
+    .transparent-table th {
+      padding: 10px;
+      border-bottom: 1px solid #ffff;
+      border-collapse: separate;
+      border: none;
+      background-color: #9C0404;
+      color: #D9D9D9;
+    }
+
     .div {
       background-color: #fff;
       display: flex;
@@ -481,7 +503,7 @@
       font-weight: 700;
       white-space: nowrap;
       margin: 31px 0 49px;
-      padding: 0 52px;
+      padding: 0 10px;
     }
     @media (max-width: 991px) {
       .div-24 {

@@ -28,3 +28,4 @@ Route::get('/register', [AuthController::class, "register"])->name('register');
 Route::post('/register-process', [AuthController::class, "registerProcess"])->name('registerProcess');
 
 Route::get('/logout', [AuthController::class, "logout"])->name('logout');
+

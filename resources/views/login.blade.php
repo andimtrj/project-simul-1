@@ -16,7 +16,8 @@
       <input name ="password" type="password" class="div-2 form-control mb-4" autocomplete="current-password" id="exampleInputPassword1" placeholder="Password">
   
       <button type="submit" class="div-4 btn btn-danger btn-block mb-4">LOGIN</button>
-      <a href="{{ route("register") }}" type="submit" class="div-5 btn btn-dark btn-block">REGISTER</a>
+      <!-- <a href="{{ route("register") }}" type="submit" class="div-5 btn btn-dark btn-block">REGISTER</a> -->
+      <a href="{{ route("register") }}" style="font-size: larger; color: red">Doesn't have an account?</a>
       </form>
     </div>
 </div>
