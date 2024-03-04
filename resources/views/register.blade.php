@@ -5,24 +5,57 @@
 @endsection
 
 @section('content')
-<form action="{{route('loginProcess')}}" method ="POST">
-@csrf
-<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
-    <div class="box text-center">
-      <img class="mx-auto" src="assets/Logo.png" alt="cimbLogo" style="height: 11rem; width: auto;">
-      <div class="poppins-semibold login-title text-danger h1 mb-5 display-3" style="font-weight: 500;">Log In</div>
-  
-      <input name ="email" type="email" class="div-2 form-control mb-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-      <input name ="password" type="password" class="div-2 form-control mb-4" autocomplete="current-password" id="exampleInputPassword1" placeholder="Password">
-  
-      <button type="submit" class="div-4 btn btn-danger btn-block mb-4">LOGIN</button>
-      <a href="{{ route("register") }}" type="submit" class="div-5 btn btn-dark btn-block">REGISTER</a>
+
+
+    <div class="p-5">
+    <form action="{{ route('registerProcess') }}" method="POST">
+        @csrf
+    <div class="container-fluid d-flex justify-content-center align-items-center vh-100">    
+       <div class ="box text-center">
+       <img class="mx-auto" src="assets/Logo.png" alt="cimbLogo" style="height: 11rem; width: auto;">
+       <div class="poppins-semibold login-title text-danger h1 mb-5 display-3" style="font-weight: 500;">Register</div>
+        <input name ="name" type="text" class="div-2 form-control mb-4" placeholder="Name" id="name" aria-describedby="emailHelp" value="{{ old('name') }}">
+
+          @error('name')
+          <div class="alert alert-danger" role="alert">
+            {{ $message }}
+          </div>
+          @enderror
+
+        <input name ="email" type="email" class="div-2 form-control mb-4" placeholder="Email" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+        @error('email')
+          <div class="alert alert-danger" role="alert">
+            {{ $message }}
+          </div>
+          @enderror
+
+        <input name ="password" type="password" class="div-2 form-control mb-4" placeholder="Password" id="exampleInputPassword1">
+ 
+
+        @error('password')
+          <div class="alert alert-danger" role="alert">
+            {{ $message }}
+          </div>
+          @enderror
+
+        <input name ="confirmation_password" type="password" class="div-2 form-control mb-4" placeholder="Confirm Password" id="exampleInputPassword2">  
+
+        @error('confirmation_password')
+          <div class="alert alert-danger" role="alert">
+            {{ $message }}
+          </div>
+          @enderror
+
+        <button type="submit" class="div-5 btn btn-danger btn-block mb-4">REGISTER</button>
       </form>
+      <a href="{{ route("login") }}" style="font-size: larger; color: red">Already have an account?</a>
     </div>
 </div>
-  
+</div>
+    {{-- End Form --}}
 
-<style>
+    <style>
     .poppins-semibold {
         font-family: "Poppins", sans-serif;
         font-weight: 600;
@@ -110,6 +143,5 @@
       }
     }
 </style>
-    
-    
-@endsection
+
+    @endsection
