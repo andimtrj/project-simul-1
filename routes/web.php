@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DocumentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,11 @@ use App\Http\Controllers\AuthController;
 // });
 
 Route::get('/home', [AuthController::class, 'home'])->name('home');
+
+Route::get('/home', [DocumentController::class, 'showAll'])->name('home');
+
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+
 Route::post('/login-process', [AuthController::class, "loginProcess"])->name('loginProcess');
 
 Route::get('/register', [AuthController::class, "register"])->name('register');
@@ -29,3 +34,12 @@ Route::post('/register-process', [AuthController::class, "registerProcess"])->na
 
 Route::get('/logout', [AuthController::class, "logout"])->name('logout');
 
+Route::get('/upload', [DocumentController::class, 'uploadPage'])->name('uploadpage');
+Route::post('/upload', [DocumentController::class, 'upload'])->name('uploadfile');
+
+Route::get('/version/{id}', [DocumentController::class, 'versionPage'])->name('versionpage');
+
+Route::get('/update/{id}', [DocumentController::class, 'updatePage'])->name('updatepage');
+Route::post('/update/{id}', [DocumentController::class, 'update'])->name('updatefile');
+
+Route::delete('/delete/{id}', [DocumentController::class, 'delete'])->name('delete');

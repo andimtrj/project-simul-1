@@ -105,33 +105,39 @@
            </tr>
       </thead>
       <tbody>
+        <?php foreach ($docs as $doc): ?>
           <tr class="">
-              <td>Abc</td>
-              <td>defghijklmnop</td>
-              <td>2023-03-02</td>
+              <td>{{$doc->title}}</td>
+              <td>{{$doc->description}}</td>
+              <td>{{$doc->created_at}}</td>
               <td>
-                <a href="#"><img src="assets/View.png" alt="Logo" style="width: auto; height: 20px; object-fit: cover;"></a>
-                <a href="#"><img src="assets/Delete.png" alt="Logo" style="width: auto; height: 20px; object-fit: cover;"></a>
+                <a href="{{ route('versionpage', $doc->file_id) }}"><img src="assets/View.png" alt="Logo" style="width: auto; height: 20px; object-fit: cover;"></a>
+                <a href='{{route('updatepage', $doc->file_id)}}'>update</a>
+                <form action="{{route('delete', $doc->file_id)}}" method="POST" id="myForm">
+                  @csrf
+                  @method('delete')
+                  <a href="#"><img src="assets/Delete.png" alt="Logo" style="width: auto; height: 20px; object-fit: cover;" id="submitButton"></a>
+                </form>
+                
               </td>
           </tr>
-          <tr>
-              <td>123</td>
-              <td>qrstuvwxyz</td>
-              <td>2023-03-02</td>
-              <td>
-                <a href="#"><img src="assets/View.png" alt="Logo" style="width: auto; height: 20px; object-fit: cover;"></a>
-                <a href="#"><img src="assets/Delete.png" alt="Logo" style="width: auto; height: 20px; object-fit: cover;"></a>
-              </td>
-          </tr>
+        <?php endforeach; ?>
       </tbody>
   </table>
-        <a href ="#" class="img-8"><img
+        <a href ="{{ route('uploadpage') }}" class="img-8"><img
           loading="lazy"
           src="/assets/Button.png" style="height:90px; width:auto;"
         /></a>
       </div>
     </div>
   </div>
+
+  <script>
+  document.getElementById("submitButton").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent the default behavior of the link
+    document.getElementById("myForm").submit(); // Submit the form
+  });
+</script>
 
   <style>
     .transparent-table {
