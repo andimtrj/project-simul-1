@@ -37,13 +37,17 @@
                 <a href="{{ route('versionpage', $doc->file_id) }}"><img src="assets/View.png" alt="Logo"
                     style="width: auto; height: 20px; object-fit: cover;"></a>
                 <a href='{{ route('updatepage', $doc->file_id) }}'>update</a>
-                <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="myForm">
+
+                  <!-- Delete Link -->
+                <a href="#" onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
+                  <img src="assets/Delete.png" alt="Delete" style="width: auto; height: 20px; object-fit: cover;">
+                </a>
+      
+                  <!-- Delete Form -->
+                <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
                   @csrf
                   @method('delete')
-                  <a href="#"><img src="assets/Delete.png" alt="Logo"
-                      style="width: auto; height: 20px; object-fit: cover;" id="submitButton"></a>
                 </form>
-
               </td>
             </tr>
             <?php endforeach; ?>
@@ -64,7 +68,7 @@
 
   <style>
     .transparent-table {
-      width: auto;
+      width: 100%;
       border-collapse: collapse;
       background-color: transparent;
       
