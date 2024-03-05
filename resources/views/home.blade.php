@@ -68,7 +68,6 @@
 
   <style>
     .transparent-table {
-
       width: 100%;
       border-collapse: collapse;
       background-color: transparent;
@@ -210,16 +209,16 @@
     }
 
     .div-22 {
-      border-radius: 23.471px;
-      box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
-      background-color: #790008;
-      display: flex;
-      margin-top: 69px;
-      width: 100%;
-      max-width: 1239px;
-      flex-direction: column;
-      padding: 50px 20px;
-    }
+  border-radius: 23.471px;
+  box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
+  background-color: #790008;
+  display: flex;
+  margin: 69px 0 0 0; /* Updated margin to make it full-width */
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  padding: 50px 20px;
+}
 
     @media (max-width: 991px) {
       .div-22 {
