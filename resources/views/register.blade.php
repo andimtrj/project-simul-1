@@ -10,8 +10,9 @@
       @csrf
       <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
         <div class ="box text-center">
-          <img class="mx-auto" src="assets/Logo.png" alt="cimbLogo" style="height: 11rem; width: auto;">
-          <div class="poppins-semibold login-title text-danger h1 mb-5 display-3" style="font-weight: 500;">Register</div>
+          <img class="mx-auto" src="assets/Logo.png" alt="cimbLogo" style="height: 9rem; width: auto;">
+          <div class="div-10">SOP Document Management System</div>
+          <div class="poppins-semibold login-title text-danger h1 mb-5 display-3" style="font-weight: 500;  margin-top: 35px">Register</div>
 
           @error('name')
             <div class="poppins-reguler error-message" role="alert">
@@ -48,12 +49,26 @@
           <button type="submit" class="div-4 btn btn-danger btn-block mb-4">REGISTER</button>
     </form>
     <a href="{{ route('login') }}" class="poppins-reguler"
-      style="font-size: larger; color: blue; text-decoration: none;">Already have an account?</a>
+   style="font-size: larger; color: blue; text-decoration: none;"
+   onmouseover="this.style.color='#9c0404'"
+   onmouseout="this.style.color='blue'">
+   Already have an account?
+</a>
   </div>
   </div>
   </div>
 
   <style>
+    .div-10 {
+      color: #790008;
+      font: 600 35px/113% Poppins, sans-serif;
+    }
+    @media (max-width: 991px) {
+      .div-10 {
+        max-width: 100%;
+        font-size: 40px;
+      }
+    }
     .error-message {
       vertical-align: left;
       color: red;
@@ -63,6 +78,7 @@
       font-family: "Poppins", sans-serif;
       font-weight: 600;
       font-style: normal;
+      font-size: 55px;
     }
 
     .poppins-reguler {
