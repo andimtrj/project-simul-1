@@ -22,6 +22,10 @@ use App\Http\Controllers\DocumentController;
 
 Route::get('/home', [AuthController::class, 'home'])->name('home');
 
+Route::get('/view', function () {
+    return view('view');
+});
+
 Route::get('/home', [DocumentController::class, 'showAll'])->name('home');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
