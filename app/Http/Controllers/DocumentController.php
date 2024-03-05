@@ -83,4 +83,13 @@ class DocumentController extends Controller
         Documents::where('file_id', $id)->delete();
         return redirect('home');
     }
+
+    public function searchProcess(Request $request){
+        
+        $searchResult = $request->input('search');
+
+        $docs = Documents::where('title', 'like', '%'. $searchResult . '%')->get();
+
+        return view('home', compact('docs'));
+    }
 }
