@@ -111,4 +111,9 @@ class DocumentController extends Controller
         return view('home', compact('docs'));
     }
 
+    public function delete($id){
+        Version::where('file_id', $id)->delete();
+        Documents::where('file_id', $id)->delete();
+        return redirect('home');
+    }
 }
