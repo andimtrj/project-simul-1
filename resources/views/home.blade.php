@@ -12,15 +12,6 @@
     <div class="div-22">
       <div class="div-23">Start Managing your SOP Documents</div>
 
-<<<<<<< HEAD
-      <div class="div-24">
-        <form class="div-24" role="search">
-          <input class="form-control me-2" style="height: 50px " type="search" placeholder="Search" aria-label="Search">
-        </form>
-        <table class="table table-hover transparent-table text-center">
-          <thead class="table table-danger">
-            <tr>
-=======
 
 
     <div class="div-24">
@@ -30,7 +21,6 @@
     <table class="table table-hover transparent-table text-center">
       <thead class="table table-danger">
            <tr>
->>>>>>> 5faa768b50478dd87c1b2857dee5f69bd3b6dabc
               <th scope="col">Doc. Title</th>
               <th scope="col">Description</th>
               <th scope="col">Timestamp</th>
@@ -74,7 +64,7 @@
 
   <style>
     .transparent-table {
-      width: 100%;
+      width: auto;
       border-collapse: collapse;
       background-color: transparent;
 
@@ -215,16 +205,16 @@
     }
 
     .div-22 {
-      border-radius: 23.471px;
-      box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
-      background-color: #790008;
-      display: flex;
-      margin-top: 69px;
-      width: 100%;
-      max-width: 1239px;
-      flex-direction: column;
-      padding: 50px 20px;
-    }
+  border-radius: 23.471px;
+  box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
+  background-color: #790008;
+  display: flex;
+  margin: 69px 0 0 0; /* Updated margin to make it full-width */
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  padding: 50px 20px;
+}
 
     @media (max-width: 991px) {
       .div-22 {
