@@ -3,36 +3,9 @@
     Home
 @endsection
 
+@extends('layout.navbar')
+
 @section('content')
-
-
-<nav class="navbar navbar-expand-lg" style="background-color: #790008; margin-bottom: 10px;">
-    <div class="container">
-        <div class="navbar-brand mx-auto">
-            <a href="#" style="font-size: xx-large; font-weight: bold; color: white;">Home</a>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="assets/Profile2.png" alt="Prof" class="rounded-circle" style="width: auto; height: 80px; object-fit: cover;">
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" style="font-size: 25px" href="Super.html">Profile</a></li>
-                        <li><a class="dropdown-item" style="font-size: 25px" href="{{ route('logout') }}">Log Out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-
-
 <div class="div">
     <img class="mx-auto" src="assets/Logo.png" alt="cimbLogo" style="height: 12rem; width: auto;">
     <div class="div-10">SOP Document Management System</div>
@@ -154,6 +127,7 @@
       border-bottom: 1px solid #ffff;
       border-collapse: separate;
       border: none;
+      font: 700 20px Poppins, sans-serif;
       border-bottom: 2px solid #ffff;
     }
 
@@ -164,6 +138,7 @@
       border: none;
       background-color: #9C0404;
       color: #D9D9D9;
+      font: 700 20px Poppins, sans-serif;
     }
 
     .div {
