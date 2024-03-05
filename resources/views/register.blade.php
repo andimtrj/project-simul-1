@@ -1,75 +1,78 @@
 @extends('layout.master')
 
 @section('title')
-    Login
+  Login
 @endsection
 
 @section('content')
-
-
-    <div class="p-5">
+  <div class="p-5">
     <form action="{{ route('registerProcess') }}" method="POST">
-        @csrf
-    <div class="container-fluid d-flex justify-content-center align-items-center vh-100">    
-       <div class ="box text-center">
-       <img class="mx-auto" src="assets/Logo.png" alt="cimbLogo" style="height: 11rem; width: auto;">
-       <div class="poppins-semibold login-title text-danger h1 mb-5 display-3" style="font-weight: 500;">Register</div>
-        <input name ="name" type="text" class="div-2 form-control mb-4" placeholder="Name" id="name" aria-describedby="emailHelp" value="{{ old('name') }}">
+      @csrf
+      <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+        <div class ="box text-center">
+          <img class="mx-auto" src="assets/Logo.png" alt="cimbLogo" style="height: 11rem; width: auto;">
+          <div class="poppins-semibold login-title text-danger h1 mb-5 display-3" style="font-weight: 500;">Register</div>
 
           @error('name')
-          <div class="alert alert-danger" role="alert">
-            {{ $message }}
-          </div>
+            <div class="poppins-reguler error-message" role="alert">
+              {{ $message }}
+            </div>
           @enderror
+          <input name ="name" type="text" class="div-2 form-control mb-4" placeholder="Name" id="name"
+            aria-describedby="emailHelp" value="{{ old('name') }}">
 
-        <input name ="email" type="email" class="div-2 form-control mb-4" placeholder="Email" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-        @error('email')
-          <div class="alert alert-danger" role="alert">
-            {{ $message }}
-          </div>
+          @error('email')
+            <div class="poppins-reguler error-message" role="alert">
+              {{ $message }}
+            </div>
           @enderror
+          <input name ="email" type="email" class="div-2 form-control mb-4" placeholder="Email" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
 
-        <input name ="password" type="password" class="div-2 form-control mb-4" placeholder="Password" id="exampleInputPassword1">
- 
-
-        @error('password')
-          <div class="alert alert-danger" role="alert">
-            {{ $message }}
-          </div>
-        @enderror
-
-        <input name ="confirmation_password" type="password" class="div-2 form-control mb-4" placeholder="Confirm Password" id="exampleInputPassword2">  
-
-        @error('confirmation_password')
-          <div class="alert alert-danger" role="alert">
-            {{ $message }}
-          </div>
+          @error('password')
+            <div class="poppins-reguler error-message" role="alert">
+              {{ $message }}
+            </div>
           @enderror
+          <input name ="password" type="password" class="div-2 form-control mb-4" placeholder="Password"
+            id="exampleInputPassword1">
 
-        <button type="submit" class="div-4 btn btn-danger btn-block mb-4">REGISTER</button>
-      </form>
-      <a href="{{ route("login") }}" class="poppins-reguler" style="font-size: larger; color: blue; text-decoration: none;">Already have an account?</a>
-    </div>
-</div>
-</div>
-    {{-- End Form --}}
+          @error('confirmation_password')
+            <div class="poppins-reguler error-message" role="alert">
+              {{ $message }}
+            </div>
+          @enderror
+          <input name ="confirmation_password" type="password" class="div-2 form-control mb-4"
+            placeholder="Confirm Password" id="exampleInputPassword2">
 
-    <style>
+          <button type="submit" class="div-4 btn btn-danger btn-block mb-4">REGISTER</button>
+    </form>
+    <a href="{{ route('login') }}" class="poppins-reguler"
+      style="font-size: larger; color: blue; text-decoration: none;">Already have an account?</a>
+  </div>
+  </div>
+  </div>
+
+  <style>
+    .error-message {
+      vertical-align: left;
+      color: red;
+    }
+
     .poppins-semibold {
-        font-family: "Poppins", sans-serif;
-        font-weight: 600;
-        font-style: normal;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-style: normal;
     }
 
     .poppins-reguler {
-        font-family: "Poppins", sans-serif;
-        font-weight: 300;
-        font-style: normal;
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      font-style: normal;
     }
 
-    input::placeholder{
-        font-size: x-large;
+    input::placeholder {
+      font-size: x-large;
     }
 
     .box {
@@ -84,12 +87,14 @@
       white-space: nowrap;
       padding: 50px 80px;
     }
+
     @media (max-width: 991px) {
       .box {
         white-space: initial;
         padding: 0 20px;
       }
     }
+
     .div-2 {
       font-family: Rubik, sans-serif;
       align-items: start;
@@ -104,6 +109,7 @@
       line-height: 137.5%;
       padding: 26px 60px 26px 28px;
     }
+
     @media (max-width: 991px) {
       .div-2 {
         white-space: initial;
@@ -111,6 +117,7 @@
         padding: 0 20px;
       }
     }
+
     .div-4 {
       justify-content: center;
       align-items: center;
@@ -124,12 +131,14 @@
       padding: 23px 60px;
       font: 28px Poppins, sans-serif;
     }
+
     @media (max-width: 991px) {
       .div-4 {
         white-space: initial;
         padding: 0 20px;
       }
     }
+
     .div-5 {
       justify-content: center;
       align-items: center;
@@ -142,12 +151,12 @@
       padding: 23px 60px;
       font: 28px Poppins, sans-serif;
     }
+
     @media (max-width: 991px) {
       .div-5 {
         white-space: initial;
         padding: 0 20px;
       }
     }
-</style>
-
-    @endsection
+  </style>
+@endsection
