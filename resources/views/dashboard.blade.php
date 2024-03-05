@@ -33,21 +33,6 @@
     }
 
     .div-22 {
-<<<<<<< HEAD
-      border-radius: 23.471px;
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
-      box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
-      background-color: #790008;
-      display: flex;
-      margin: 69px 0 0 0;
-      /* Updated margin to make it full-width */
-      align-items: center;
-      width: 100%;
-      flex-direction: column;
-      padding: 50px 20px;
-    }
-=======
   box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
   background-color: #790008;
   display: flex;
@@ -57,7 +42,6 @@
   flex-direction: column;
   padding: 50px 20px;
 }
->>>>>>> a0da910fa9fc4c6d682b086ff9a728df7701fc5a
 
     @media (max-width: 991px) {
       .div-22 {
