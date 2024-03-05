@@ -36,13 +36,22 @@
               <td>{{ $doc->created_at }}</td>
               <td class="d-flex justify-content-start">
                 <a href="{{ route('versionpage', $doc->file_id) }}"><img src="assets/View.png" alt="Logo"
-                    class="button-action"></a>
-                <a href='{{ route('updatepage', $doc->file_id) }}'><img src="assets/Update.png" class="button-action" alt=""></a>
-                <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="myForm">
+                    style="width: auto; height: 20px; object-fit: cover;"></a>
+                <a href='{{ route('updatepage', $doc->file_id) }}'>update</a>
+
+                  <!-- Delete Link -->
+                <a href="#" onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
+                  <img src="assets/Delete.png" alt="Delete" style="width: auto; height: 20px; object-fit: cover;">
+                </a>
+      
+                  <!-- Delete Form -->
+                <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
                   @csrf
                   @method('delete')
-                  <a href="#"><img src="assets/Delete.png" alt="Logo" class="button-action" id="submitButton"></a>
+                  <a href="#"><img src="assets/Delete.png" alt="Logo"
+                      style="width: auto; height: 20px; object-fit: cover;" id="submitButton"></a>
                 </form>
+
               </td>
             </tr>
             <?php endforeach; ?>
@@ -68,9 +77,10 @@
     }
 
     .transparent-table {
-      width: auto;
+      width: 100%;
       border-collapse: collapse;
       background-color: transparent;
+
     }
 
     .transparent-table td {

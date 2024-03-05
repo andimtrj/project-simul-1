@@ -8,8 +8,14 @@ use Illuminate\Http\Request;
 
 class DocumentController extends Controller
 {
-    public function showAll(){
+    public function showAll(Request $request){
         $docs = Documents::all();
+
+        $sortBy = $request->query('sort_by', 'title'); 
+        $sortOrder = $request->query('sort_order', 'asc'); 
+    
+        $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+
         return view('home', compact('docs'));
     }
 
@@ -82,6 +88,8 @@ class DocumentController extends Controller
     public function delete($id){
         Version::where('file_id', $id)->delete();
         Documents::where('file_id', $id)->delete();
+       
+
         return redirect('home');
     }
 
@@ -89,7 +97,13 @@ class DocumentController extends Controller
         
         $searchResult = $request->input('search');
 
-        $docs = Documents::where('title', 'like', '%'. $searchResult . '%')->get();
+        // Sorting
+        $sortBy = $request->query('sort_by', 'title'); 
+        $sortOrder = $request->query('sort_order', 'asc'); 
+
+        $docs = Documents::where('title', 'like', '%'. $searchResult . '%')
+        ->orderBy($sortBy, $sortOrder)
+        ->get();
 
         return view('home', compact('docs'));
     }
