@@ -22,7 +22,7 @@
         <input name="title" type="text" class=" div-5 form-control" placeholder="Enter document title">
         
         @error('title')
-            <div class="poppins-reguler error-message" role="alert">
+            <div class="poppins-reguler error-message" style="color:red" role="alert">
               {{ $message }}
             </div>
         @enderror
@@ -31,7 +31,7 @@
         <textarea name="description" type="text" class=" div-7 form-control" id="docDescription" rows="8" placeholder="Enter document description"></textarea>
         
         @error('description')
-            <div class="poppins-reguler error-message" role="alert">
+            <div class="poppins-reguler error-message" style="color:red" role="alert">
               {{ $message }}
             </div>
         @enderror
@@ -52,11 +52,17 @@
           </div>
 
           @error('file')
-          <div class="poppins-reguler error-message" role="alert">
-            {{ $message }}
-          </div>
-          @enderror
-          
+            @if($message == 'The file field must not be greater than 3000 kilobytes.')
+              <div class="poppins-reguler error-message" style="color:red" role="alert">
+                  The file must not be greater than 3mb.
+              </div>
+          @else
+              <div class="poppins-reguler error-message" style="color:red" role="alert">
+                  {{ $message }}
+              </div>
+          @endif
+    @enderror
+
     </div>
         
     </form>
