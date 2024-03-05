@@ -9,8 +9,14 @@ use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
-    public function showAll(){
+    public function showAll(Request $request){
         $docs = Documents::all();
+
+        $sortBy = $request->query('sort_by', 'title'); 
+        $sortOrder = $request->query('sort_order', 'asc'); 
+    
+        $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+
         return view('home', compact('docs'));
     }
 
@@ -46,7 +52,8 @@ class DocumentController extends Controller
     }
 
     public function versionPage($id){
-        $ver = Version::where('file_id', $id)->get();
+        $docs = Documents::findOrFail($id);
+        $ver = Documents::where('title', $docs->title)->get();
         return view('versionpage', compact('ver'));
     }
 
@@ -54,12 +61,6 @@ class DocumentController extends Controller
         $docs = Documents::findOrFail($id);
         return view('updatepage', compact('docs'));
 
-    }
-
-    public function delete($id){
-        Version::where('file_id', $id)->delete();
-        Documents::where('file_id', $id)->delete();
-        return redirect('home');
     }
 
     public function update(Request $request, $id){
@@ -93,6 +94,21 @@ class DocumentController extends Controller
     public function downloaddoc($filename){
         $path = '/public/' . $filename;
         return Storage::download($path, $filename);
+    }
+
+    public function searchProcess(Request $request){
+        
+        $searchResult = $request->input('search');
+
+        // Sorting
+        $sortBy = $request->query('sort_by', 'title'); 
+        $sortOrder = $request->query('sort_order', 'asc'); 
+
+        $docs = Documents::where('title', 'like', '%'. $searchResult . '%')
+        ->orderBy($sortBy, $sortOrder)
+        ->get();
+
+        return view('home', compact('docs'));
     }
 
 }
