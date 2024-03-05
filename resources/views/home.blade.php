@@ -67,6 +67,7 @@
       width: auto;
       border-collapse: collapse;
       background-color: transparent;
+      
 
     }
 
