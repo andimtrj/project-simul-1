@@ -37,7 +37,8 @@ class DocumentController extends Controller
     }
 
     public function versionPage($id){
-        $ver = Version::where('file_id', $id)->get();
+        $docs = Documents::findOrFail($id);
+        $ver = Documents::where('title', $docs->title)->get();
         return view('versionpage', compact('ver'));
     }
 
@@ -82,5 +83,14 @@ class DocumentController extends Controller
         Version::where('file_id', $id)->delete();
         Documents::where('file_id', $id)->delete();
         return redirect('home');
+    }
+
+    public function searchProcess(Request $request){
+        
+        $searchResult = $request->input('search');
+
+        $docs = Documents::where('title', 'like', '%'. $searchResult . '%')->get();
+
+        return view('home', compact('docs'));
     }
 }
