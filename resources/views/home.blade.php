@@ -34,10 +34,11 @@
               <td>{{ $doc->title }}</td>
               <td>{{ $doc->description }}</td>
               <td>{{ $doc->created_at }}</td>
-              <td class="d-flex justify-content-start">
+              <td>
                 <a href="{{ route('versionpage', $doc->file_id) }}"><img src="assets/View.png" alt="Logo"
                     style="width: auto; height: 20px; object-fit: cover;"></a>
-                <a href='{{ route('updatepage', $doc->file_id) }}'>update</a>
+                <a href='{{ route('updatepage', $doc->file_id) }}'><img src="assets/Update.png" alt="Logo"
+                    style="width: auto; height: 20px; object-fit: cover;"></a>
 
                   <!-- Delete Link -->
                 <a href="#" onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
