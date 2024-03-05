@@ -12,15 +12,6 @@
     <div class="div-22">
       <div class="div-23">Start Managing your SOP Documents</div>
 
-<<<<<<< HEAD
-      <div class="div-24">
-        <form class="div-24" role="search">
-          <input class="form-control me-2" style="height: 50px " type="search" placeholder="Search" aria-label="Search">
-        </form>
-        <table class="table table-hover transparent-table text-center">
-          <thead class="table table-danger">
-            <tr>
-=======
 
 
     <div class="div-24">
@@ -30,7 +21,6 @@
     <table class="table table-hover transparent-table text-center">
       <thead class="table table-danger">
            <tr>
->>>>>>> 5faa768b50478dd87c1b2857dee5f69bd3b6dabc
               <th scope="col">Doc. Title</th>
               <th scope="col">Description</th>
               <th scope="col">Timestamp</th>

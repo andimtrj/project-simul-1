@@ -11,15 +11,15 @@
     <form action="{{ route('uploadfile') }}" method="POST" enctype="multipart/form-data">
         @csrf
     <div class="div">
-        <div class="div-2">
-            <div class="div-3">Upload Document</div>
+        <div class="container-header">
+            <div class="title-header">Upload Document</div>
             <a href="{{ route("home") }}" class="img">
               <img loading="lazy" 
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/e47f9be03e4ed5219ff51a6490aad0d4c6771245c483a2c8d58705f53aa5bd4a?"
               /></a>
         </div>    
-        <label class="div-4 form-label">Document Title</label>
-        <input name="title" type="text" class=" div-5 form-control" placeholder="Enter document title">
+        <label class="sub-title form-label">Document Title</label>
+        <input name="title" type="text" class=" textbox-title form-control" placeholder="Enter document title">
         
         @error('title')
             <div class="poppins-reguler error-message" role="alert">
@@ -27,8 +27,8 @@
             </div>
         @enderror
 
-        <label class="div-6 form-label">Description</label>
-        <textarea name="description" type="text" class=" div-7 form-control" id="docDescription" rows="8" placeholder="Enter document description"></textarea>
+        <label class="sub-desc form-label">Description</label>
+        <textarea name="description" type="text" class=" textbox-desc form-control" id="docDescription" rows="8" placeholder="Enter document description"></textarea>
         
         @error('description')
             <div class="poppins-reguler error-message" role="alert">
@@ -36,16 +36,16 @@
             </div>
         @enderror
 
-        <div class="div-8">Upload Document</div>
-            <div class="div-9" id="dropZone">
-                <div class="div-10">
+        <div class="sub-upload">Upload Document</div>
+            <div class="container-uploadfiles" id="dropZone">
+                <div class="middle-container-uploadfiles">
                 <img
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/5429c0ca66db95123f5e11c9a2a546a0ed20ceacdf5ef55cc3b5c5a37d821a10?"
                     class="img-2"
                 />
                 <input name="file" type="file" class="div-1 form-control" id="fileInput">
-                <div class="div-12">file type .pdf | maximum 3mb</div>
+                <div class="small-title">file type .pdf | maximum 3mb</div>
                 <button class="div-0" type="submit">Submit</button>
             </div>
             
@@ -114,7 +114,7 @@
       padding: 0 20px;
     }
   }
-  .div-2 {
+  .container-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -123,12 +123,12 @@
     color: #9c0404;
   }
   @media (max-width: 991px) {
-    .div-2 {
+    .container-header {
       max-width: 100%;
       flex-wrap: wrap;
     }
   }
-  .div-3 {
+  .title-header {
     font-family: Poppins, sans-serif;
     text-decoration-line: underline;
     align-self: end;
@@ -144,18 +144,18 @@
     fill: #9c0404;
     align-self: start;
   }
-  .div-4 {
+  .sub-title {
     color: #790008;
     margin-top: 61px;
     font: 25px/150% Poppins, sans-serif;
   }
   @media (max-width: 991px) {
-    .div-4 {
+    .sub-title {
       max-width: 100%;
       margin-top: 40px;
     }
   }
-  .div-5 {
+  .textbox-title {
     border-radius: 4px;
     border: 1px solid #d1d1d6;
     background-color: #f6f6f6;
@@ -164,17 +164,17 @@
     max-width: 100%;
     height: 38px;
   }
-  .div-6 {
+  .sub-desc {
     color: #790008;
     margin-top: 39px;
     font: 25px/150% Poppins, sans-serif;
   }
   @media (max-width: 991px) {
-    .div-6 {
+    .sub-desc {
       max-width: 100%;
     }
   }
-  .div-7 {
+  .textbox-desc {
     border-radius: 4px;
     border: 1px solid #d1d1d6;
     background-color: #f6f6f6;
@@ -182,22 +182,22 @@
     height: 354px;
   }
   @media (max-width: 991px) {
-    .div-7 {
+    .textbox-desc {
       max-width: 100%;
     }
   }
-  .div-8 {
+  .sub-upload {
     color: #790008;
     margin-top: 94px;
     font: 25px/150% Poppins, sans-serif;
   }
   @media (max-width: 991px) {
-    .div-8 {
+    .sub-upload {
       max-width: 100%;
       margin-top: 40px;
     }
   }
-  .div-9 {
+  .container-uploadfiles {
     border-radius: 4px;
     border: 1px solid #d1d1d6;
     background-color: #f6f6f6;
@@ -209,20 +209,20 @@
     padding: 45px 60px 29px;
   }
   @media (max-width: 991px) {
-    .div-9 {
+    .container-uploadfiles {
       max-width: 100%;
       white-space: initial;
       padding: 0 20px;
     }
   }
-  .div-10 {
+  .middle-container-uploadfiles {
     display: flex;
     width: 251px;
     max-width: 100%;
     flex-direction: column;
   }
   @media (max-width: 991px) {
-    .div-10 {
+    .middle-container-uploadfiles {
       white-space: initial;
     }
   }
@@ -247,13 +247,13 @@
       padding: 0 20px;
     }
   }
-  .div-12 {
+  .small-title {
     color: #790008;
     margin-top: 22px;
     font: 16px/150% Poppins, sans-serif;
   }
   @media (max-width: 991px) {
-    .div-12 {
+    .small-title {
       white-space: initial;
     }
   }
