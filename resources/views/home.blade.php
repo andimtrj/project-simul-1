@@ -66,7 +66,7 @@
 
     <div class="div-24">
     <form class="div-24" role="search">
-      <input class="form-control me-2" style="height: 50px"  type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control me-2" style="height: 50px "  type="search" placeholder="Search" aria-label="Search">
     </form>
     <table class="table table-hover transparent-table text-center">
       <thead class="table table-danger">
@@ -127,6 +127,7 @@
       border-bottom: 1px solid #ffff;
       border-collapse: separate;
       border: none;
+      font: 700 20px Poppins, sans-serif;
       border-bottom: 2px solid #ffff;
     }
 
@@ -137,6 +138,7 @@
       border: none;
       background-color: #9C0404;
       color: #D9D9D9;
+      font: 700 20px Poppins, sans-serif;
     }
 
     .div {

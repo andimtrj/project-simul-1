@@ -37,7 +37,7 @@
           <div class="alert alert-danger" role="alert">
             {{ $message }}
           </div>
-          @enderror
+        @enderror
 
         <input name ="confirmation_password" type="password" class="div-2 form-control mb-4" placeholder="Confirm Password" id="exampleInputPassword2">  
 
@@ -49,7 +49,7 @@
 
         <button type="submit" class="div-4 btn btn-danger btn-block mb-4">REGISTER</button>
       </form>
-      <a href="{{ route("login") }}" style="font-size: larger; color: red">Already have an account?</a>
+      <a href="{{ route("login") }}" class="poppins-reguler" style="font-size: larger; color: blue; text-decoration: none;">Already have an account?</a>
     </div>
 </div>
 </div>
@@ -59,6 +59,12 @@
     .poppins-semibold {
         font-family: "Poppins", sans-serif;
         font-weight: 600;
+        font-style: normal;
+    }
+
+    .poppins-reguler {
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
         font-style: normal;
     }
 

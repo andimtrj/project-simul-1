@@ -108,10 +108,7 @@
       font: 700 20px Poppins, sans-serif;
       color: #D9D9D9;
     }
-   
-   .navbar {
-    border-bottom: 3px solid #9C0404;
-  }
+    
     .div0 {
       background-color: #fff;
       display: flex;
