@@ -41,20 +41,33 @@
         </div>
       @enderror
 
+     
       <div class="div-8">Upload Document</div>
-      <input name="file" type="file" class="div-9 div-1 form-control" id="fileInput dropZone">
+            <div class="div-9" id="dropZone">
+                <div class="div-10">
+                <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/5429c0ca66db95123f5e11c9a2a546a0ed20ceacdf5ef55cc3b5c5a37d821a10?"
+                    class="img-2"
+                />
+                <input name="file" type="file" class="div-1 form-control" id="fileInput">
+                <div class="div-12">file type .pdf | maximum 3mb</div>
+                <button class="div-0" type="submit">Submit</button>
+            </div>
+            
+          </div>
 
-
-
-
-
-
-      @error('file')
-        <div class="poppins-reguler error-message" role="alert">
-          {{ $message }}
-        </div>
-      @enderror
-
+          @error('file')
+            @if($message == 'The file field must not be greater than 3000 kilobytes.')
+              <div class="poppins-reguler error-message" role="alert">
+                  The file must not be greater than 3MB.
+              </div>
+            @else
+              <div class="poppins-reguler error-message" role="alert">
+                  {{ $message }}
+              </div>
+            @endif
+          @enderror
     </div>
 
   </form>
