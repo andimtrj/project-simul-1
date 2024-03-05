@@ -52,8 +52,7 @@ class DocumentController extends Controller
     }
 
     public function versionPage($id){
-        $docs = Documents::findOrFail($id);
-        $ver = Documents::where('title', $docs->title)->get();
+        $ver = Version::where('file_id', $id)->get();
         return view('versionpage', compact('ver'));
     }
 
@@ -73,7 +72,7 @@ class DocumentController extends Controller
         $document = Documents::find($id);
         $vercount = Version::where('file_id', $id)->count();
 
-        if($vercount >= 2){
+        if($vercount >= 5){
             $oldest = Version::where('file_id', $id)->orderBy('created_at', 'asc')->first();
             $version = $oldest->ver_id;
             Version::where('ver_id', $version)->where('file_id', $id)->delete();
