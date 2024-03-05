@@ -20,8 +20,22 @@
         </div>    
         <label class="div-4 form-label">Document Title</label>
         <input name="title" type="text" class=" div-5 form-control" placeholder="Enter document title">
+        
+        @error('title')
+            <div class="poppins-reguler error-message" role="alert">
+              {{ $message }}
+            </div>
+        @enderror
+
         <label class="div-6 form-label">Description</label>
         <textarea name="description" type="text" class=" div-7 form-control" id="docDescription" rows="8" placeholder="Enter document description"></textarea>
+        
+        @error('description')
+            <div class="poppins-reguler error-message" role="alert">
+              {{ $message }}
+            </div>
+        @enderror
+
         <div class="div-8">Upload Document</div>
             <div class="div-9" id="dropZone">
                 <div class="div-10">
@@ -34,7 +48,15 @@
                 <div class="div-12">file type .pdf | maximum 3mb</div>
                 <button class="div-0" type="submit">Submit</button>
             </div>
-        </div>
+            
+          </div>
+
+          @error('file')
+          <div class="poppins-reguler error-message" role="alert">
+            {{ $message }}
+          </div>
+          @enderror
+          
     </div>
         
     </form>

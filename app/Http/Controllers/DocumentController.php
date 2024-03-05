@@ -37,7 +37,8 @@ class DocumentController extends Controller
     }
 
     public function versionPage($id){
-        $ver = Version::where('file_id', $id)->get();
+        $docs = Documents::findOrFail($id);
+        $ver = Documents::where('title', $docs->title)->get();
         return view('versionpage', compact('ver'));
     }
 
