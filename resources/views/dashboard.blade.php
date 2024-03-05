@@ -3,14 +3,13 @@
   Home
 @endsection
 
-@extends('layout.navbar')
-
 @section('content')
   <div class="div">
     @include('layout.under-navbar')
 
     <div class="div-22">
       <div class="sub-title">Start Managing your SOP Documents</div>
+      <button type="submit" class="div-4 btn btn-danger btn-block mb-4">LOGIN</button>
     </div>
   </div>
 
@@ -31,12 +30,15 @@
 
     .div-22 {
       border-radius: 23.471px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
       box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
       background-color: #790008;
       display: flex;
-      margin-top: 69px;
+      margin: 69px 0 0 0;
+      /* Updated margin to make it full-width */
+      align-items: center;
       width: 100%;
-      max-width: 1239px;
       flex-direction: column;
       padding: 50px 20px;
     }
@@ -59,6 +61,27 @@
     @media (max-width: 991px) {
       .sub-title {
         max-width: 100%;
+      }
+    }
+
+    .div-4 {
+      justify-content: center;
+      align-items: center;
+      border-radius: 14.063px;
+      background-color: #9c0404;
+      width: 500px;
+      max-width: 100%;
+      margin-top: 60px;
+      color: var(--White, #fff);
+      letter-spacing: -0.56px;
+      padding: 23px 60px;
+      font: 28px Poppins, sans-serif;
+    }
+
+    @media (max-width: 991px) {
+      .div-4 {
+        white-space: initial;
+        padding: 0 20px;
       }
     }
   </style>

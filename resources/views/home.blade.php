@@ -12,25 +12,16 @@
     <div class="div-22">
       <div class="div-23">Start Managing your SOP Documents</div>
 
-<<<<<<< HEAD
+
+
       <div class="div-24">
-        <form class="div-24" role="search">
-          <input class="form-control me-2" style="height: 50px " type="search" placeholder="Search" aria-label="Search">
+        <form action = "{{ route('searchProcess') }}" class="div-24" role="search" method="GET">
+          <input name="search" class="form-control me-2" style="height: 50px" type="text" placeholder="Search"
+            aria-label="Search">
         </form>
         <table class="table table-hover transparent-table text-center">
           <thead class="table table-danger">
             <tr>
-=======
-
-
-    <div class="div-24">
-    <form action = "{{ route('searchProcess') }}" class="div-24" role="search" method="GET">
-      <input name="search" class="form-control me-2" style="height: 50px"  type="text" placeholder="Search" aria-label="Search">
-    </form>
-    <table class="table table-hover transparent-table text-center">
-      <thead class="table table-danger">
-           <tr>
->>>>>>> 5faa768b50478dd87c1b2857dee5f69bd3b6dabc
               <th scope="col">Doc. Title</th>
               <th scope="col">Description</th>
               <th scope="col">Timestamp</th>
@@ -43,17 +34,15 @@
               <td>{{ $doc->title }}</td>
               <td>{{ $doc->description }}</td>
               <td>{{ $doc->created_at }}</td>
-              <td>
+              <td class="d-flex justify-content-start">
                 <a href="{{ route('versionpage', $doc->file_id) }}"><img src="assets/View.png" alt="Logo"
-                    style="width: auto; height: 20px; object-fit: cover;"></a>
-                <a href='{{ route('updatepage', $doc->file_id) }}'>update</a>
+                    class="button-action"></a>
+                <a href='{{ route('updatepage', $doc->file_id) }}'><img src="assets/Update.png" class="button-action" alt=""></a>
                 <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="myForm">
                   @csrf
                   @method('delete')
-                  <a href="#"><img src="assets/Delete.png" alt="Logo"
-                      style="width: auto; height: 20px; object-fit: cover;" id="submitButton"></a>
+                  <a href="#"><img src="assets/Delete.png" alt="Logo" class="button-action" id="submitButton"></a>
                 </form>
-
               </td>
             </tr>
             <?php endforeach; ?>
@@ -73,11 +62,15 @@
   </script>
 
   <style>
+    .button-action{
+      width: auto; 
+      height: 20px; 
+    }
+
     .transparent-table {
-      width: 100%;
+      width: auto;
       border-collapse: collapse;
       background-color: transparent;
-
     }
 
     .transparent-table td {
@@ -216,12 +209,15 @@
 
     .div-22 {
       border-radius: 23.471px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
       box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
       background-color: #790008;
       display: flex;
-      margin-top: 69px;
+      margin: 69px 0 0 0;
+      /* Updated margin to make it full-width */
+      align-items: center;
       width: 100%;
-      max-width: 1239px;
       flex-direction: column;
       padding: 50px 20px;
     }
@@ -255,6 +251,7 @@
       white-space: nowrap;
       margin: 31px 0 49px;
       padding: 0 10px;
+      width: 100%;
     }
 
     @media (max-width: 991px) {
