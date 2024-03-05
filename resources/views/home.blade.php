@@ -15,9 +15,10 @@
 
 
     <div class="div-24">
-    <form action = "{{ route('searchProcess') }}" class="div-24" role="search" method="GET">
+    <form action = "{{ route('searchProcess') }}" class="div-24" role="search" method="GET"> 
       <input name="search" class="form-control me-2" style="height: 50px"  type="text" placeholder="Search" aria-label="Search">
     </form>
+
     <table class="table table-hover transparent-table text-center">
       <thead class="table table-danger">
            <tr>
