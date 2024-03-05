@@ -118,7 +118,10 @@
                   @method('delete')
                   <a href="#"><img src="assets/Delete.png" alt="Logo" style="width: auto; height: 20px; object-fit: cover;" id="submitButton"></a>
                 </form>
-                
+                <form action="{{route('downloaddoc', $doc->file)}}" method="GET">
+                  @csrf
+                  <button type="submit">download</button>
+                </form>
               </td>
           </tr>
         <?php endforeach; ?>
