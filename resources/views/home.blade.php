@@ -41,17 +41,18 @@
                     style="width: auto; height: 20px; object-fit: cover;"></a>
 
                   <!-- Delete Link -->
-                <a href="#" onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal">
                   <img src="assets/Delete.png" alt="Delete" style="width: auto; height: 20px; object-fit: cover;">
                 </a>
+                
       
                   <!-- Delete Form -->
-                <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
+                <!-- <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
                   @csrf
                   @method('delete')
                   <a href="#"><img src="assets/Delete.png" alt="Logo"
                       style="width: auto; height: 20px; object-fit: cover;" id="submitButton"></a>
-                </form>
+                </form> -->
 
               </td>
             </tr>
@@ -60,6 +61,32 @@
         </table>
         <a href ="{{ route('uploadpage') }}" class="img-8"><img loading="lazy" src="/assets/Button.png"
             style="height:90px; width:auto;" /></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <!-- <button type="button" class="btn btn-secondary" style="margin-left: 150px; background-color: red; color: white; width: 175px; height: 50px; font-size: larger; font-weight: 900;" data-bs-dismiss="modal">give access</button> -->
+              <!-- Delete Link -->
+              <a href="#" onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
+                  <img src="assets/Profile.png" alt="Delete" style="width: auto; height: 20px; object-fit: cover;">
+                </a>
+      
+                  <!-- Delete Form -->
+                <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
+                  @csrf
+                  @method('delete')
+                  <a href="#"><img src="assets/Profile.png" alt="Logo"
+                      style="width: auto; height: 20px; object-fit: cover;" id="submitButton"></a>
+                </form>
+
+        </div>
       </div>
     </div>
   </div>
