@@ -49,7 +49,7 @@
                   </a>
 
                   {{-- Delete --}}
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
+                  <a data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
                     <img src="assets/Delete.png" alt="Delete" class="action-button">
                   </a>
                 </td>
@@ -58,10 +58,10 @@
               <!-- Delete Pop Up -->
               <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1"
                 aria-labelledby="updateModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <div class="modal-title">Are you sure you want to delete {{ $doc->title }}</div>
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content popup-delete">
+                    <div class="modal-body text-center">
+                      <div class="modal-title mb-3">Are you sure you want to delete {{ $doc->title }}?</div>
                       <a href="#"
                         onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
                         <button class="btn btn-danger">Delete</button>
@@ -93,6 +93,13 @@
   </script>
 
   <style>
+    .popup-delete{
+      height: auto;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+    }
+
     .container-title-search{
       width: 100%
     }
