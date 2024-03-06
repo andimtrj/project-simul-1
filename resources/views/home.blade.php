@@ -103,32 +103,38 @@
     }
 
     .transparent-table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: transparent;
-
+    width: 100%;
+    border-collapse: collapse;
+    background-color: transparent;
+    overflow-y: auto;
+    display: block; 
+    max-height: 300px;
     }
 
-    .transparent-table td {
-      color: White;
-      padding: 10px;
-      background-color: transparent;
-      border-bottom: 1px solid #ffff;
-      border-collapse: separate;
-      border: none;
-      font: 700 20px Poppins, sans-serif;
-      border-bottom: 2px solid #ffff;
-    }
+.transparent-table td {
+  color: white;
+  padding: 10px;
+  background-color: transparent;
+  border-bottom: 1px solid #ffff;
+  border-collapse: separate;
+  border: none;
+  font: 700 20px Poppins, sans-serif;
+  border-bottom: 2px solid #ffff;
+}
 
-    .transparent-table th {
-      padding: 10px;
-      border-bottom: 1px solid #ffff;
-      border-collapse: separate;
-      border: none;
-      background-color: #9C0404;
-      color: #D9D9D9;
-      font: 700 20px Poppins, sans-serif;
-    }
+.transparent-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1; 
+  border-collapse: separate;
+  border: none;
+  background-color: #9C0404;
+  color: #D9D9D9;
+  font: 700 20px Poppins, sans-serif;
+}
+
+
+
 
     .container-content {
       background-color: #fff;

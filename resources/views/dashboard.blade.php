@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-  Home
+  Dashboard
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 </svg>
     <div class="div-22">
       <div class="sub-title">Start Managing your SOP Documents</div>
-      <button type="submit" class="div-4 btn btn-danger btn-block mb-4">LOGIN</button>
+      <a href ="{{ route('login') }}"><button type="submit" class="div-4 btn btn-danger btn-block mb-4">LOGIN</button></a>
     </div>
   </div>
 
@@ -33,10 +33,10 @@
     }
 
     .div-22 {
-  box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
-  background-color: #790008;
-  display: flex;
-  margin: 0 0 0 0; /* Updated margin to make it full-width */
+    box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
+    background-color: #790008;
+    display: flex;
+    margin: 0 0 0 0; /* Updated margin to make it full-width */
   align-items: center;
   width: 100%;
   flex-direction: column;
