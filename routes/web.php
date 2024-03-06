@@ -52,11 +52,11 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('/update/{id}', [DocumentController::class, 'updatePage'])->name('updatepage');
     Route::post('/update/{id}', [DocumentController::class, 'update'])->name('updatefile');
     Route::delete('/delete/{id}', [DocumentController::class, 'delete'])->name('delete');
+    Route::get('/homeAdmin/search-process', [DocumentController::class, "searchProcessAdmin"])->name('searchProcessAdmin');
 });
 
 Route::get('/home/search-process', [DocumentController::class, "searchProcess"])->name('searchProcess');
 
-Route::get('/homeAdmin/search-process', [DocumentController::class, "searchProcessAdmin"])->name('searchProcessAdmin');
 
 Route::get('/view/{id}', [DocumentController::class, 'versionPage'])->name('versionpage');
 Route::get('/download/{id}', [DocumentController::class, 'downloaddoc'])->name('downloaddoc');
