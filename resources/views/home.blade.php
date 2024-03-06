@@ -16,7 +16,7 @@
         <div class ="searchbar">
             <div class="search-container">
               <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button name = "search" class="btn btn-outline-light my-2 my-sm-0" style="margin-left: 10px"
+              <button class="btn btn-outline-light my-2 my-sm-0" style="margin-left: 10px"
                 type="submit">Search</button>
             </div>
           </form>
