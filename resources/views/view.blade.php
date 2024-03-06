@@ -3,7 +3,7 @@
   View
 @endsection
 
-@extends('layout.navbar')
+@extends('layout.nagit vbar')
 
 
 @section('content')

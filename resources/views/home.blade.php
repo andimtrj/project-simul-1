@@ -10,16 +10,21 @@
     @include('layout.under-navbar')
 
     <div class="div-22">
-      <div class="div-23">Start Managing your SOP Documents</div>
+      <div class="container-title-search">
+        <div class="div-23">Start Managing your SOP Documents</div>
+        <form action = "{{ route('searchProcess') }}" class="form-inline my-2 my-lg-0" style="width: 40vh;" role="search" method="GET">
+        <div class ="searchbar">
+            <div class="search-container">
+              <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-light my-2 my-sm-0" style="margin-left: 10px"
+                type="submit">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
 
-
-      <form action = "{{ route('searchProcess') }}" class="form-inline my-2 my-lg-0" role="search" method="GET">
-        <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button  name = "search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
       <div class="div-24">
-        
-        
         <table class="table table-hover transparent-table text-center">
           <thead class="table table-danger">
             <tr>
@@ -31,17 +36,17 @@
           </thead>
           <tbody>
             @foreach ($docs as $doc)
-                <tr>
-                    <td>{{ $doc->title }}</td>
-                    <td>{{ $doc->description }}</td>
-                    <td>{{ $doc->updated_at }}</td>
-                    <td>
-                        <a href="{{ route('versionpage', $doc->file_id) }}">
-                            <img src="assets/View.png" alt="View" class="action-button">
-                        </a>
-                        <a href="{{ route('updatepage', $doc->file_id) }}">
-                            <img src="assets/Update.png" alt="Update" style="height: 28px; width: auto;">
-                        </a>
+              <tr>
+                <td>{{ $doc->title }}</td>
+                <td>{{ $doc->description }}</td>
+                <td>{{ $doc->updated_at }}</td>
+                <td>
+                  <a href="{{ route('versionpage', $doc->file_id) }}">
+                    <img src="assets/View.png" alt="View" class="action-button">
+                  </a>
+                  <a href="{{ route('updatepage', $doc->file_id) }}">
+                    <img src="assets/Update.png" alt="Update" style="height: 28px; width: auto;">
+                  </a>
 
                   {{-- Delete --}}
                   <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
@@ -88,9 +93,21 @@
   </script>
 
   <style>
+    .container-title-search{
+      width: 100%
+    }
 
-    .searchbar{
-      align-items:left;
+    .searchbar {
+      display: flex;
+      justify-content: left;
+      align-items: left;
+    }
+
+    .search-container {
+      height: 4vh;
+      display: flex;
+      align-items: left;
+      margin-right: 10px;
     }
 
     .button-action {
@@ -100,12 +117,10 @@
 
     .transparent-table {
       table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    background-color: transparent;
-    overflow-y: auto;
-    display: block; 
-    max-height: 300px;
+      width: 100%;
+      border-collapse: collapse;
+      background-color: transparent;
+      max-height: 300px;
     }
 
     .transparent-table td {
@@ -119,16 +134,14 @@
       border-bottom: 2px solid #ffff;
     }
 
-  .transparent-table th {
-    position: sticky;
-    top: 0;
-    border-collapse: separate;
-    border: none;
-    background-color: #9C0404;
-    color: #D9D9D9;
-    font: 700 20px Poppins, sans-serif;
-    min-width: 250px
-  }
+    .transparent-table th {
+      border-collapse: separate;
+      border: none;
+      background-color: #9C0404;
+      color: #D9D9D9;
+      font: 700 20px Poppins, sans-serif;
+      min-width: 250px
+    }
 
 
     .container-content {
@@ -270,6 +283,7 @@
       text-align: center;
       align-self: center;
       margin-top: 6px;
+      margin-bottom: 30px;
       font: 600 35px/113% Poppins, sans-serif;
     }
 
@@ -285,8 +299,7 @@
       font-size: 20px;
       font-weight: 700;
       white-space: nowrap;
-      margin: 31px 0 49px;
-      padding: 0 10px;
+      margin: 15px 0 49px;
       width: 100%;
     }
 
