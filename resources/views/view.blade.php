@@ -3,7 +3,7 @@
   View
 @endsection
 
-@extends('layout.navbar')
+@extends('layout.nagit vbar')
 
 
 @section('content')
@@ -26,7 +26,6 @@
           @foreach ($ver as $ver)
             <tr>
 
-<<<<<<< HEAD
               <td>{{ $ver->created_at }}</td>
               <td>{{ $ver->description }}</td>
               <td>
@@ -51,42 +50,6 @@
       </path>
     </svg>
   </div>
-=======
-
-<div class="div0">
-
-  <div class="div-2" style="text-align: left;">{{$doc->title}}</div>
-  <div class="div-3">
-    {{$doc->description}}
-  </div>
-
-  <table class="table table-hover transparent-table">
-        <thead class="table-danger">
-            <tr>
-                <th scope="col">Timestamp</th>
-                <th scope="col">Description</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-            <tbody>
-            @foreach($ver as $ver)
-                <tr>
-                  
-                    <td>{{$ver->created_at}}</td>
-                    <td>{{$ver->description}}</td>
-                    <td>
-                        <a href="{{ route('downloaddoc', $ver->file) }}"><img src="../assets/Download.png" alt="Logo" style="width: 30px; height: auto; margin-left: 10px; object-fit: cover;"></a>
-                    </td>
-                </tr>
-            @endforeach
-                </tbody>
-  </table>
-          <form action="{{ route('updatepage', $doc->file_id) }}" method="GET">
-            <button type="submit" class="div-4 btn btn-danger btn-block mb-4 mx-auto">Update Document</button>
-          </form>
-
-</div>
->>>>>>> 110f2389ca7088736c661a2899e4a7521cfd7878
 
   <style>
     .div-4 {
