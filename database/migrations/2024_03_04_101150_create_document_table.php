@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('file');
-            $table->dateTime('created_at')->useCurrent(); // Current datetime
+            $table->integer('version')->nullable();
+            // $table->dateTime('created_at')->useCurrent(); // Current datetime
+            // $table->dateTime('updated_at');
+            $table->timestamps();
         });
     }
 

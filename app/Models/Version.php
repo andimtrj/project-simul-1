@@ -14,6 +14,5 @@ class Version extends Model
         'description',
         'file'
     ];
-    public $timestamps = false;
     protected $table = 'version';
 }

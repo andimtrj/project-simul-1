@@ -33,7 +33,7 @@
             <tr class="">
               <td>{{ $doc->title }}</td>
               <td>{{ $doc->description }}</td>
-              <td>{{ $doc->created_at }}</td>
+              <td>{{ $doc->updated_at }}</td>
               <td>
                 <a href="{{ route('versionpage', $doc->file_id) }}"><img src="assets/View.png" alt="Logo"
                     style="width: auto; height: 20px; object-fit: cover;"></a>
@@ -45,32 +45,21 @@
                   <img src="assets/Delete.png" alt="Delete" style="width: auto; height: 20px; object-fit: cover;">
                 </a>
 
-
-                <!-- Delete Form -->
-                <!-- <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
-                      @csrf
-                      @method('delete')
-                      <a href="#"><img src="assets/Delete.png" alt="Logo"
-                          style="width: auto; height: 20px; object-fit: cover;" id="submitButton"></a>
-                    </form> -->
-
               </td>
             </tr>
             <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content justify-content-center">
                   <div class="modal-body">
-                    <!-- <button type="button" class="btn btn-secondary" style="margin-left: 150px; background-color: red; color: white; width: 175px; height: 50px; font-size: larger; font-weight: 900;" data-bs-dismiss="modal">give access</button> -->
+
                     <!-- Delete Link -->
                     <div class="modal-title">Are you sure you want to Delete {{  $doc->title }}</div>
                     <a href="#" onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
-                      {{-- <img src="assets/Profile.png" alt="Delete" style="width: auto; height: 20px; object-fit: cover;"> --}}
                       <button class="btn btn-danger">Delete</button>
                     </a>
 
                     <!-- Delete Form -->
-                    <form action="{{ route('delete', $doc->file_id) }}" method="POST"
-                      id="deleteForm_{{ $doc->file_id }}" style="display: none;">
+                    <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
                       @csrf
                       @method('delete')
                     </form>
