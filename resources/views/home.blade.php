@@ -90,13 +90,12 @@
     }
 
     .transparent-table {
-      table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
     background-color: transparent;
     overflow-y: auto;
     display: block; 
-    max-height: 300px;
+    max-height: 800px;
     }
 
   .transparent-table td {
@@ -118,7 +117,7 @@
     background-color: #9C0404;
     color: #D9D9D9;
     font: 700 20px Poppins, sans-serif;
-    min-width: 250px
+    min-width: 43vh;
   }
 
 
