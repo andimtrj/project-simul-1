@@ -677,6 +677,7 @@
     }
 
     .img-8 {
+      transition: transform 0.3s ease;
       aspect-ratio: 0.99;
       object-fit: auto;
       object-position: center;
@@ -684,6 +685,10 @@
       align-self: end;
       margin-top: 42px;
       max-width: 100%;
+    }
+
+    .img-8:hover{
+      transform: scale(1.1);
     }
 
     @media (max-width: 991px) {
