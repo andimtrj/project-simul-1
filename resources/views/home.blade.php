@@ -29,47 +29,45 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($docs as $doc): ?>
-            <tr class="">
-              <td>{{ $doc->title }}</td>
-              <td>{{ $doc->description }}</td>
-              <td>{{ $doc->updated_at }}</td>
-              <td>
-                <a href="{{ route('versionpage', $doc->file_id) }}"><img src="assets/View.png" alt="Logo"
-                    style="width: auto; height: 20px; object-fit: cover;"></a>
-                <a href='{{ route('updatepage', $doc->file_id) }}'><img src="assets/Update.png" alt="Logo"
-                    style="width: auto; height: 20px; object-fit: cover;"></a>
+            @foreach ($docs as $doc)
+                <tr>
+                    <td>{{ $doc->title }}</td>
+                    <td>{{ $doc->description }}</td>
+                    <td>{{ $doc->updated_at }}</td>
+                    <td>
+                        <a href="{{ route('versionpage', $doc->file_id) }}">
+                            <img src="assets/View.png" alt="View" class="action-button">
+                        </a>
+                        <a href="{{ route('updatepage', $doc->file_id) }}">
+                            <img src="assets/Update.png" alt="Update" class="action-button">
+                        </a>
 
-                <!-- Delete Link -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal">
-                  <img src="assets/Delete.png" alt="Delete" style="width: auto; height: 20px; object-fit: cover;">
-                </a>
+                        {{-- Delete --}}
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
+                            <img src="assets/Delete.png" alt="Delete" class="action-button">
+                        </a>
+                    </td>
+                </tr>
 
-              </td>
-            </tr>
-            <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content justify-content-center">
-                  <div class="modal-body">
-
-                    <!-- Delete Link -->
-                    <div class="modal-title">Are you sure you want to Delete {{  $doc->title }}</div>
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
-                      <button class="btn btn-danger">Delete</button>
-                    </a>
-
-                    <!-- Delete Form -->
-                    <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
-                      @csrf
-                      @method('delete')
-                    </form>
-
-                  </div>
+                <!-- Delete Pop Up -->
+                <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="modal-title">Are you sure you want to delete {{ $doc->title }}</div>
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
+                                    <button class="btn btn-danger">Delete</button>
+                                </a>
+                                <!-- Delete Form -->
+                                <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
+                                    @csrf
+                                    @method('delete')
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-
-            <?php endforeach; ?>
+                @endforeach
           </tbody>
         </table>
 
@@ -92,32 +90,37 @@
     }
 
     .transparent-table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: transparent;
-
+      table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: transparent;
+    overflow-y: auto;
+    display: block; 
+    max-height: 300px;
     }
 
-    .transparent-table td {
-      color: White;
-      padding: 10px;
-      background-color: transparent;
-      border-bottom: 1px solid #ffff;
-      border-collapse: separate;
-      border: none;
-      font: 700 20px Poppins, sans-serif;
-      border-bottom: 2px solid #ffff;
-    }
+  .transparent-table td {
+    color: white;
+    padding: 10px;
+    background-color: transparent;
+    border-bottom: 1px solid #ffff;
+    border-collapse: separate;
+    border: none;
+    font: 700 20px Poppins, sans-serif;
+    border-bottom: 2px solid #ffff;
+  }
 
-    .transparent-table th {
-      padding: 10px;
-      border-bottom: 1px solid #ffff;
-      border-collapse: separate;
-      border: none;
-      background-color: #9C0404;
-      color: #D9D9D9;
-      font: 700 20px Poppins, sans-serif;
-    }
+  .transparent-table th {
+    position: sticky;
+    top: 0;
+    border-collapse: separate;
+    border: none;
+    background-color: #9C0404;
+    color: #D9D9D9;
+    font: 700 20px Poppins, sans-serif;
+    min-width: 250px
+  }
+
 
     .container-content {
       background-color: #fff;
