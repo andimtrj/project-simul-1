@@ -11,7 +11,7 @@
     </button>
     <div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div style="color: #9C0404;" class="poppins-reguler">Welcome, Admin!</div>
+        <div style="color: #9C0404;" class="poppins-reguler">Welcome, <a id="welcomeText"></a></div>
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -57,16 +57,38 @@
 </style>
 
 <script>
+   function typeWriter(text, i, speed) {
+    if (i < text.length) {
+      document.getElementById("welcomeText").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(function () {
+        typeWriter(text, i, speed);
+      }, speed);
+    } else {
+      // Clear the text and start typing again
+      setTimeout(function () {
+        document.getElementById("welcomeText").innerHTML = '';
+        typeWriter(text, 0, speed);
+      }, 2000); // Adjust the delay before starting the next iteration
+    }
+  }
+
+  // Call the typing function when the page is loaded
+  window.onload = function () {
+    var text = "Admin!";
+    var speed = 200; // Adjust typing speed here
+    typeWriter(text, 0, speed);
+  };
+
   window.addEventListener('scroll', function() {
     var navbar = document.getElementById('navbar');
     var scrollPosition = window.scrollY;
-    var transparency = 0.1; 
-    
+    var transparency = 0.1;
+
     if (scrollPosition > 0) {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, ' + transparency + ')';
+      navbar.style.backgroundColor = 'rgba(255, 255, 255, ' + transparency + ')';
     } else {
       navbar.classList.remove('scrolled');
     }
-});
-
+  });
 </script>
