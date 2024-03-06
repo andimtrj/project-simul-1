@@ -52,4 +52,6 @@ Route::post('/update/{id}', [DocumentController::class, 'update'])->name('update
 
 Route::delete('/delete/{id}', [DocumentController::class, 'delete'])->name('delete');
 
+Route::get('/download/{id}', [DocumentController::class, 'downloaddoc'])->name('downloaddoc');
+
 Route::get('/search-process', [DocumentController::class, "searchProcess"])->name('searchProcess');
