@@ -112,21 +112,6 @@
       
     }
 
-<<<<<<< HEAD
-    .div {
-      display: flex;
-      flex-direction: column;
-      padding: 0 80px;
-    }
-
-    .div0 {
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-=======
 
   .div-2 {
     color: #9c0404;
@@ -137,7 +122,6 @@
     margin-top: 60px;
   }
   @media (max-width: 991px) {
->>>>>>> 110f2389ca7088736c661a2899e4a7521cfd7878
     .div-2 {
       color: #9c0404;
       text-decoration-line: underline;
