@@ -13,11 +13,19 @@
         <div class="div-10">SOP Document Management System</div>
         <div class="poppins-semibold login-title text-danger h1 mb-5 display-3" style="font-weight: 500; margin-top: 35px">
           Log In</div>
+
+        @if(session('error'))
+          <div class="poppins-reguler error-message" role="alert">
+            {{ session('error') }}
+          </div>
+        @endif
+
         @error('email')
           <div class="poppins-reguler error-message" role="alert">
             {{ $message }}
           </div>
         @enderror
+
         <input name ="email" type="email" class="input-email form-control mb-4" id="exampleInputEmail1"
           aria-describedby="emailHelp" placeholder="Email">
 
@@ -26,11 +34,12 @@
             {{ $message }}
           </div>
         @enderror
+
         <input name ="password" type="password" class="input-email form-control mb-3" autocomplete="current-password"
           id="exampleInputPassword1" placeholder="Password">
 
         <button type="submit" class="div-4 btn btn-danger btn-block mb-4">LOGIN</button>
-        <!-- <a href="{{ route('register') }}" type="submit" class="div-5 btn btn-dark btn-block">REGISTER</a> -->
+
         <a href="{{ route('register') }}" class="poppins-reguler"
           style="font-size: larger; color: blue; text-decoration: none;" onmouseover="this.style.color='#9c0404'"
           onmouseout="this.style.color='blue'">
