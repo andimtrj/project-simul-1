@@ -22,6 +22,7 @@ use App\Http\Middleware\AdminMiddleware;
 // });
 
 Route::get('/home', [AuthController::class, 'home'])->name('home');
+Route::get('/homeUser', [AuthController::class, 'homeUser'])->name('homeUser');
 
 Route::get('/view', function () {
     return view('view');
@@ -32,6 +33,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [DocumentController::class, 'showAll'])->name('home');
+Route::get('/homeUser', [DocumentController::class, 'showAllUser'])->name('homeUser');
+
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 
