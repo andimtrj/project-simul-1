@@ -90,6 +90,7 @@
     }
 
     .transparent-table {
+      table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
     background-color: transparent;
@@ -112,12 +113,12 @@
   .transparent-table th {
     position: sticky;
     top: 0;
-
     border-collapse: separate;
     border: none;
     background-color: #9C0404;
     color: #D9D9D9;
     font: 700 20px Poppins, sans-serif;
+    min-width: 250px
   }
 
 
