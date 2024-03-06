@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Middleware\AdminMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,8 +43,11 @@ Route::post('/register-process', [AuthController::class, "registerProcess"])->na
 
 Route::get('/logout', [AuthController::class, "logout"])->name('logout');
 
-Route::get('/upload', [DocumentController::class, 'uploadPage'])->name('uploadpage');
-Route::post('/upload', [DocumentController::class, 'upload'])->name('uploadfile');
+Route::middleware(['isAdmin'])->group(function () {
+    Route::get('/upload', [DocumentController::class, 'uploadPage'])->name('uploadpage');
+    Route::post('/upload', [DocumentController::class, 'upload'])->name('uploadfile');
+});
+
 
 Route::get('/version/{id}', [DocumentController::class, 'versionPage'])->name('versionpage');
 
