@@ -98,8 +98,6 @@
     width: 100%;
     border-collapse: collapse;
     background-color: transparent;
-    overflow-y: auto;
-    display: block; 
     max-height: 300px;
     }
 
@@ -115,8 +113,6 @@
     }
 
   .transparent-table th {
-    position: sticky;
-    top: 0;
     border-collapse: separate;
     border: none;
     background-color: #9C0404;
