@@ -30,52 +30,55 @@
           </thead>
           <tbody>
             @foreach ($docs as $doc)
-                <tr>
-                    <td>{{ $doc->title }}</td>
-                    <td>{{ $doc->description }}</td>
-                    <td>{{ $doc->updated_at }}</td>
-                    <td>
-                        <a href="{{ route('versionpage', $doc->file_id) }}">
-                            <img src="assets/View.png" alt="View" class="action-button">
-                        </a>
-                        <a href="{{ route('updatepage', $doc->file_id) }}">
-                            <img src="assets/Update.png" alt="Update" class="action-button">
-                        </a>
+              <tr>
+                <td>{{ $doc->title }}</td>
+                <td>{{ $doc->description }}</td>
+                <td>{{ $doc->updated_at }}</td>
+                <td>
+                  <a href="{{ route('versionpage', $doc->file_id) }}">
+                    <img src="assets/View.png" alt="View" class="action-button">
+                  </a>
+                  <a href="{{ route('updatepage', $doc->file_id) }}">
+                    <img src="assets/Update.png" alt="Update" class="action-button">
+                  </a>
 
-                        {{-- Delete --}}
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
-                            <img src="assets/Delete.png" alt="Delete" class="action-button">
-                        </a>
-                    </td>
-                </tr>
+                  {{-- Delete --}}
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
+                    <img src="assets/Delete.png" alt="Delete" class="action-button">
+                  </a>
+                </td>
+              </tr>
 
-                <!-- Delete Pop Up -->
-                <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="modal-title">Are you sure you want to delete {{ $doc->title }}</div>
-                                <a href="#" onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
-                                    <button class="btn btn-danger">Delete</button>
-                                </a>
-                                <!-- Delete Form -->
-                                <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
-                                    @csrf
-                                    @method('delete')
-                                </form>
-                            </div>
-                        </div>
+              <!-- Delete Pop Up -->
+              <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1"
+                aria-labelledby="updateModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <div class="modal-title">Are you sure you want to delete {{ $doc->title }}</div>
+                      <a href="#"
+                        onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
+                        <button class="btn btn-danger">Delete</button>
+                      </a>
+                      <!-- Delete Form -->
+                      <form action="{{ route('delete', $doc->file_id) }}" method="POST"
+                        id="deleteForm_{{ $doc->file_id }}" style="display: none;">
+                        @csrf
+                        @method('delete')
+                      </form>
                     </div>
+                  </div>
                 </div>
-                @endforeach
+              </div>
+            @endforeach
           </tbody>
         </table>
-
         <a href ="{{ route('uploadpage') }}" class="img-8"><img loading="lazy" src="/assets/Button.png"
             style="height:90px; width:auto;" /></a>
       </div>
     </div>
   </div>
+
   <script>
     document.getElementById("submitButton").addEventListener("click", function(event) {
       event.preventDefault(); // Prevent the default behavior of the link
@@ -91,35 +94,31 @@
 
     .transparent-table {
       table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    background-color: transparent;
-    overflow-y: auto;
-    display: block; 
-    max-height: 300px;
+      width: 100%;
+      border-collapse: collapse;
+      background-color: transparent;
     }
 
-  .transparent-table td {
-    color: white;
-    padding: 10px;
-    background-color: transparent;
-    border-bottom: 1px solid #ffff;
-    border-collapse: separate;
-    border: none;
-    font: 700 20px Poppins, sans-serif;
-    border-bottom: 2px solid #ffff;
-  }
+    .transparent-table td {
+      color: white;
+      padding: 10px;
+      background-color: transparent;
+      border-bottom: 1px solid #ffff;
+      border-collapse: separate;
+      border: none;
+      font: 700 20px Poppins, sans-serif;
+      border-bottom: 2px solid #ffff;
+    }
 
-  .transparent-table th {
-    position: sticky;
-    top: 0;
-    border-collapse: separate;
-    border: none;
-    background-color: #9C0404;
-    color: #D9D9D9;
-    font: 700 20px Poppins, sans-serif;
-    min-width: 48vh;
-  }
+    .transparent-table th {
+      position: sticky;
+      top: 0;
+      border-collapse: separate;
+      border: none;
+      background-color: #9C0404;
+      color: #D9D9D9;
+      font: 700 20px Poppins, sans-serif;
+    }
 
 
     .container-content {
