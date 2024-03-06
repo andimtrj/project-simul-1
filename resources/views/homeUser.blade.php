@@ -19,6 +19,7 @@
           <input name="search" class="form-control me-2" style="height: 50px" type="text" placeholder="Search"
             aria-label="Search">
         </form>
+
         <table class="table table-hover transparent-table text-center">
           <thead class="table table-danger">
             <tr>
@@ -36,7 +37,7 @@
                     <td>{{ $doc->updated_at }}</td>
                     <td>
                         <a href="{{ route('versionpage', $doc->file_id) }}">
-                            <img src="assets/View.png" alt="View" class="action-button">
+                            <img src="../assets/View.png" alt="View" class="action-button">
                         </a>
                     </td>
                 </tr>

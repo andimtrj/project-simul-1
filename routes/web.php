@@ -54,7 +54,9 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::delete('/delete/{id}', [DocumentController::class, 'delete'])->name('delete');
 });
 
-Route::get('/search-process', [DocumentController::class, "searchProcess"])->name('searchProcess');
+Route::get('/home/search-process', [DocumentController::class, "searchProcess"])->name('searchProcess');
+
+Route::get('/homeAdmin/search-process', [DocumentController::class, "searchProcessAdmin"])->name('searchProcessAdmin');
 
 Route::get('/view/{id}', [DocumentController::class, 'versionPage'])->name('versionpage');
 Route::get('/download/{id}', [DocumentController::class, 'downloaddoc'])->name('downloaddoc');
