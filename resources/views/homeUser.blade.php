@@ -10,32 +10,14 @@
     @include('layout.under-navbar')
 
     <div class="div-22">
-      <div class="container-title-search">
-        <div class="div-23">Start Managing your SOP Documents</div>
-        <form action = "{{ route('searchProcess') }}" class="form-inline my-2 my-lg-0" style="width: 40vh;" role="search" method="GET">
-        <div class ="searchbar">
-            <div class="search-container">
-              <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-light my-2 my-sm-0" style="margin-left: 10px"
-                type="submit">Search</button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-<<<<<<< HEAD
+      
+      <div class="div-23">Start Managing your SOP Documents</div>
 
       <div class="div-24">
-<<<<<<< HEAD
         <form action = "{{ route('searchProcess') }}" class="div-24" role="search" method="GET">
           <input name="search" class="form-control me-2" style="height: 50px" type="text" placeholder="Search"
             aria-label="Search">
-            
         </form>
-=======
->>>>>>> 054c8a3d362bf47970f64a938c0fa97a22feb752
-=======
->>>>>>> a1b4e77e3640606f346bf0ccc7dbf59fee888fca
         <table class="table table-hover transparent-table text-center">
           <thead class="table table-danger">
             <tr>
@@ -53,7 +35,7 @@
                     <td>{{ $doc->updated_at }}</td>
                     <td>
                         <a href="{{ route('versionpage', $doc->file_id) }}">
-                            <img src="../assets/View.png" alt="View" class="action-button">
+                            <img src="assets/View.png" alt="View" class="action-button">
                         </a>
                     </td>
                 </tr>
@@ -63,7 +45,6 @@
       </div>
     </div>
   </div>
-
   <script>
     document.getElementById("submitButton").addEventListener("click", function(event) {
       event.preventDefault(); // Prevent the default behavior of the link
@@ -72,23 +53,6 @@
   </script>
 
   <style>
-    .container-title-search{
-      width: 100%
-    }
-
-    .searchbar {
-      display: flex;
-      justify-content: left;
-      align-items: left;
-    }
-
-    .search-container {
-      height: 4vh;
-      display: flex;
-      align-items: left;
-      margin-right: 10px;
-    }
-
     .button-action {
       width: auto;
       height: 20px;
@@ -96,31 +60,35 @@
 
     .transparent-table {
       table-layout: fixed;
-      width: 100%;
-      border-collapse: collapse;
-      background-color: transparent;
-      max-height: 300px;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: transparent;
+    overflow-y: auto;
+    display: block; 
+    max-height: 300px;
     }
 
-    .transparent-table td {
-      color: white;
-      padding: 10px;
-      background-color: transparent;
-      border-bottom: 1px solid #ffff;
-      border-collapse: separate;
-      border: none;
-      font: 700 20px Poppins, sans-serif;
-      border-bottom: 2px solid #ffff;
-    }
+  .transparent-table td {
+    color: white;
+    padding: 10px;
+    background-color: transparent;
+    border-bottom: 1px solid #ffff;
+    border-collapse: separate;
+    border: none;
+    font: 700 20px Poppins, sans-serif;
+    border-bottom: 2px solid #ffff;
+  }
 
-    .transparent-table th {
-      border-collapse: separate;
-      border: none;
-      background-color: #9C0404;
-      color: #D9D9D9;
-      font: 700 20px Poppins, sans-serif;
-      min-width: 250px
-    }
+  .transparent-table th {
+    position: sticky;
+    top: 0;
+    border-collapse: separate;
+    border: none;
+    background-color: #9C0404;
+    color: #D9D9D9;
+    font: 700 20px Poppins, sans-serif;
+    min-width: 250px
+  }
 
 
     .container-content {
@@ -244,6 +212,7 @@
       background-color: #790008;
       display: flex;
       margin: 69px 0 0 0;
+      /* Updated margin to make it full-width */
       align-items: center;
       width: 100%;
       flex-direction: column;
@@ -262,7 +231,6 @@
       text-align: center;
       align-self: center;
       margin-top: 6px;
-      margin-bottom: 30px;
       font: 600 35px/113% Poppins, sans-serif;
     }
 
@@ -278,7 +246,8 @@
       font-size: 20px;
       font-weight: 700;
       white-space: nowrap;
-      margin: 15px 0 49px;
+      margin: 31px 0 49px;
+      padding: 0 10px;
       width: 100%;
     }
 

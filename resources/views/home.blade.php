@@ -10,14 +10,15 @@
     @include('layout.under-navbar')
 
     <div class="div-22">
-<<<<<<< HEAD
       <div class="container-title-search">
         <div class="div-23">Start Managing your SOP Documents</div>
-        <form action = "{{ route('searchProcess') }}" class="form-inline my-2 my-lg-0" style="width: 100%;" role="search" method="GET">
+        <form action = "{{ route('searchProcessAdmin') }}" class="form-inline my-2 my-lg-0" style="width: 100%;" role="search" method="GET">
+        
         <div class ="searchbar">
-            <div class="search-container">
+          <div class="search-container">
               <div style = "display: flex; width:100%">
               <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width:90%">
+              </form>
               <div class="dropdown d-flex justify-content-end align-self-end" style="width: 10%;">
   <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fa-solid fa-sort"></i>
@@ -29,19 +30,11 @@
 </div>
             </div>
   
-          </form>
         </div>
       </div>
 
-=======
-      <div class="div-23">Start Managing your SOP Documents</div>
->>>>>>> a1b4e77e3640606f346bf0ccc7dbf59fee888fca
 
-      <div class ="searchbar">
-      <form action = "{{ route('searchProcessAdmin') }}" class="form-inline my-2 my-lg-0" role="search" method="GET">
-        <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button  name = "search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form></div>
+
       <div class="div-24">
         <table class="table table-hover transparent-table text-center">
           <thead class="table table-danger">
