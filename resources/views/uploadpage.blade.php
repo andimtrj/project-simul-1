@@ -41,40 +41,78 @@
         </div>
       @enderror
 
-     
-      <div class="div-8">Upload Document</div>
-            <div class="div-9" id="dropZone">
-                <div class="div-10">
-                <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/5429c0ca66db95123f5e11c9a2a546a0ed20ceacdf5ef55cc3b5c5a37d821a10?"
-                    class="img-2"
-                />
-                <input name="file" type="file" class="div-1 form-control" id="fileInput">
-                <div class="div-12">file type .pdf | maximum 3mb</div>
-                <button class="div-0" type="submit">Submit</button>
-            </div>
-            
-          </div>
 
-          @error('file')
-            @if($message == 'The file field must not be greater than 3000 kilobytes.')
-              <div class="poppins-reguler error-message" role="alert">
-                  The file must not be greater than 3MB.
-              </div>
-            @else
-              <div class="poppins-reguler error-message" role="alert">
-                  {{ $message }}
-              </div>
-            @endif
-          @enderror
+      <div class="div-8">Upload Document</div>
+      {{-- <div class="div-9 dropZone" id="dropArea"> --}}
+        <div class="div-9" id="dropArea">
+          <div class="div-10">
+            <img loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/5429c0ca66db95123f5e11c9a2a546a0ed20ceacdf5ef55cc3b5c5a37d821a10?"
+              class="img-2" />
+            <input name="file" type="file" id="fileInput" class="div-1 form-control" hidden />
+            <p class="div-12">Drag & drop files here or <a class="browse-tag" href="#">Browse</a></p>
+            <div class="div-12">File type .pdf | Maximum 3mb</div>
+            <button class="div-0 btn btn-danger" type="submit">Submit</button>
+          </div>
+        </div>
+    </div>
+
+    
+      {{-- <div class="div-10">
+        <img loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/5429c0ca66db95123f5e11c9a2a546a0ed20ceacdf5ef55cc3b5c5a37d821a10?"
+          class="img-2" />
+        <input name="file" type="file" class="div-1 form-control" id="fileInput">
+        <div class="div-12">file type .pdf | maximum 3mb</div>
+        <button class="div-0" type="submit">Submit</button>
+      </div> --}}
+
+    </div>
+
+    @error('file')
+      @if ($message == 'The file field must not be greater than 3000 kilobytes.')
+        <div class="poppins-reguler error-message" role="alert">
+          The file must not be greater than 3MB.
+        </div>
+      @else
+        <div class="poppins-reguler error-message" role="alert">
+          {{ $message }}
+        </div>
+      @endif
+    @enderror
     </div>
 
   </form>
 
 
   <style>
-    .div-1{
+    .browse-tag:hover{
+      color: #9c0404;
+    }
+
+    .upload-area {
+      width: 300px;
+      height: 200px;
+      border: 2px dashed #ccc;
+      text-align: center;
+      padding: 20px;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+
+    .upload-area p {
+      margin-bottom: 10px;
+    }
+
+    .upload-area.highlight {
+      border: 2px solid #00b7ff;
+    }
+
+    #fileInput {
+      display: none;
+    }
+
+    .div-1 {
       width: auto;
       height: 200px;
     }
@@ -84,7 +122,7 @@
       color: red;
     }
 
-    #dropZone {
+    .dropZone {
       border: 2px dashed #9c0404;
       padding: 20px;
       text-align: center;
@@ -231,6 +269,7 @@
       align-items: center;
       white-space: nowrap;
       padding: 45px 60px 29px;
+      cursor: pointer;
     }
 
     @media (max-width: 991px) {
@@ -242,6 +281,7 @@
     }
 
     .div-10 {
+      align-items: center;
       display: flex;
       width: 251px;
       max-width: 100%;
@@ -292,30 +332,85 @@
   </style>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-          var dropArea = document.getElementById('dropArea');
-          var fileInput = document.getElementById('fileInput');
+    // document.addEventListener('DOMContentLoaded', function() {
+    //       var dropArea = document.getElementById('dropArea');
+    //       var fileInput = document.getElementById('fileInput');
 
-          dropArea.addEventListener('dragover', function(e) {
-            e.preventDefault();
-            dropArea.classList.add('dragover');
-          });
+    //       dropArea.addEventListener('dragover', function(e) {
+    //         e.preventDefault();
+    //         dropArea.classList.add('dragover');
+    //       });
 
-          dropArea.addEventListener('dragleave', function() {
-            dropArea.classList.remove('dragover');
-          });
+    //       dropArea.addEventListener('dragleave', function() {
+    //         dropArea.classList.remove('dragover');
+    //       });
 
-          dropArea.addEventListener('drop', function(e) {
-            e.preventDefault();
-            dropArea.classList.remove('dragover');
+    //       dropArea.addEventListener('drop', function(e) {
+    //         e.preventDefault();
+    //         dropArea.classList.remove('dragover');
 
-            var files = e.dataTransfer.files;
+    //         var files = e.dataTransfer.files;
 
-            if (files.length > 0) {
-              fileInput.files = files;
-              // You can also update the fileInput label or perform other actions
-            }
-          });
+    //         if (files.length > 0) {
+    //           fileInput.files = files;
+    //           // You can also update the fileInput label or perform other actions
+    //         }
+    //       });
+    const dropArea = document.getElementById("dropArea");
+    const fileInput = document.getElementById("fileInput");
+
+    // Highlight the drop area when dragging over
+    dropArea.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      dropArea.classList.add("highlight");
+    });
+
+    // Remove highlight when dragging leaves
+    dropArea.addEventListener("dragleave", () => {
+      dropArea.classList.remove("highlight");
+    });
+
+    // Handle file drop
+    dropArea.addEventListener("drop", (event) => {
+      event.preventDefault();
+      dropArea.classList.remove("highlight");
+
+      const files = event.dataTransfer.files;
+
+      // Handle single file upload for simplicity
+      if (files.length > 1) {
+        alert("Only one file allowed!");
+        return;
+      }
+
+      const file = files[0];
+      fileInput.files = files;
+
+      // Display file name (optional)
+      const fileNameElement = dropArea.querySelector("p");
+      fileNameElement.textContent = file.name;
+
+      // Handle file upload (replace with your actual upload logic)
+      console.log("Uploading file:", file);
+      // Implement your upload logic here, e.g., using AJAX or FormData
+    });
+
+    // Handle browsing for files (optional)
+    dropArea.querySelector("a").addEventListener("click", () => {
+      fileInput.click();
+    });
+
+    // Handle file selection from browse dialog
+    fileInput.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      // Display file name (optional)
+      const fileNameElement = dropArea.querySelector("p");
+      fileNameElement.textContent = file.name;
+
+      // Handle file upload (replace with your actual upload logic)
+      console.log("Uploading file:", file);
+      // Implement your upload logic here, e.g., using AJAX or FormData
+    });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
