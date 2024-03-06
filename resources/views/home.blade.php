@@ -33,7 +33,7 @@
                 <tr>
                     <td>{{ $doc->title }}</td>
                     <td>{{ $doc->description }}</td>
-                    <td>{{ $doc->created_at }}</td>
+                    <td>{{ $doc->updated_at }}</td>
                     <td>
                         <a href="{{ route('versionpage', $doc->file_id) }}">
                             <img src="assets/View.png" alt="View" class="action-button">
