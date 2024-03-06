@@ -12,13 +12,22 @@
     <div class="div-22">
       <div class="container-title-search">
         <div class="div-23">Start Managing your SOP Documents</div>
-        <form action = "{{ route('searchProcess') }}" class="form-inline my-2 my-lg-0" style="width: 40vh;" role="search" method="GET">
+        <form action = "{{ route('searchProcess') }}" class="form-inline my-2 my-lg-0" style="width: 100%;" role="search" method="GET">
         <div class ="searchbar">
             <div class="search-container">
-              <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-light my-2 my-sm-0" style="margin-left: 10px"
-                type="submit">Search</button>
+              <div style = "display: flex; width:100%">
+              <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width:90%">
+              <div class="dropdown d-flex justify-content-end align-self-end" style="width: 10%;">
+  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fa-solid fa-sort"></i>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item" href="#">Sort by Title</a></li>
+    <li><a class="dropdown-item" href="#">Sort by Timestamp</a></li>
+  </ul>
+</div>
             </div>
+  
           </form>
         </div>
       </div>
@@ -104,10 +113,10 @@
     }
 
     .search-container {
-      height: 4vh;
+      height: 5vh;
       display: flex;
       align-items: left;
-      margin-right: 10px;
+      width: 100%;
     }
 
     .button-action {
@@ -130,7 +139,7 @@
       border-bottom: 1px solid #ffff;
       border-collapse: separate;
       border: none;
-      font: 700 20px Poppins, sans-serif;
+      font: 20px Poppins, sans-serif;
       border-bottom: 2px solid #ffff;
     }
 
@@ -138,7 +147,7 @@
       border-collapse: separate;
       border: none;
       background-color: #9C0404;
-      color: #D9D9D9;
+      color: white;
       font: 700 20px Poppins, sans-serif;
       min-width: 250px
     }
