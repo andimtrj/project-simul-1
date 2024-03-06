@@ -112,7 +112,16 @@
       
     }
 
-
+    .div {
+      border-radius: 23.471px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      display: flex;
+      margin: 0 0 0 0;
+      align-items: center;
+      width: 100%;
+      flex-direction: column;
+    }
   .div-2 {
     color: #9c0404;
     text-decoration-line: underline;
@@ -121,15 +130,7 @@
     font: 700 45px Poppins, sans-serif;
     margin-top: 60px;
   }
-  @media (max-width: 991px) {
-    .div-2 {
-      color: #9c0404;
-      text-decoration-line: underline;
-      align-self: center;
-      white-space: nowrap;
-      font: 700 45px Poppins, sans-serif;
-      margin-top: 60px;
-    }
+
 
     @media (max-width: 991px) {
       .div-2 {
