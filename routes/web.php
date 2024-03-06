@@ -49,7 +49,7 @@ Route::middleware(['isAdmin'])->group(function () {
 });
 
 
-Route::get('/version/{id}', [DocumentController::class, 'versionPage'])->name('versionpage');
+Route::get('/view/{id}', [DocumentController::class, 'versionPage'])->name('versionpage');
 
 Route::get('/update/{id}', [DocumentController::class, 'updatePage'])->name('updatepage');
 Route::post('/update/{id}', [DocumentController::class, 'update'])->name('updatefile');

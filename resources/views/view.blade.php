@@ -12,12 +12,9 @@
 
 <div class="div0">
 <div class="div">
-  <div class="div-2" style="text-align: left;">SOP Duduk</div>
+  <div class="div-2" style="text-align: left;">{{$doc->title}}</div>
   <div class="div-3">
-    Description of file SOP DUDUk 1 ... Lorem ipsum dolor sit amet, consectetur
-    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-    nisi ut aliquip ex ea commodo consequat
+    {{$doc->description}}
   </div>
 
   <table class="table table-hover transparent-table">
@@ -29,25 +26,21 @@
             </tr>
         </thead>
             <tbody>
+            @foreach($ver as $ver)
                 <tr>
-                    <td>2023-02-29</td>
-                    <td>Update description...</td>
+                  
+                    <td>{{$ver->created_at}}</td>
+                    <td>{{$ver->description}}</td>
                     <td>
-                        <a href="#"><img src="assets/Download.png" alt="Logo" style="width: 30px; height: auto; margin-left: 10px; object-fit: cover;"></a>
+                        <a href="{{ route('downloaddoc', $ver->file) }}"><img src="assets/Download.png" alt="Logo" style="width: 30px; height: auto; margin-left: 10px; object-fit: cover;"></a>
                     </td>
                 </tr>
-                    <tr>
-                        <td>2023-04-02</td>
-                        <td>Update description...</td>
-                        <td>
-                            <a href="#"><img src="assets/Download.png" alt="Logo" style="width: 30px; height: auto; margin-left: 10px; object-fit: cover;"></a>
-                        </td>
-                    </tr>
+            @endforeach
                 </tbody>
-            </table>
-
+  </table>
+          <form action="{{ route('updatepage', $doc->file_id) }}" method="GET">
             <button type="submit" class="div-4 btn btn-danger btn-block mb-4 mx-auto">Update Document</button>
-
+          </form>
 </div>
 </div>
 
