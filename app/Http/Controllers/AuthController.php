@@ -11,6 +11,11 @@ class AuthController extends Controller
     public function home(){
         return view('home');
     }
+
+    public function homeUser(){
+        return view('homeUser');
+    }
+
     public function login(){
         return view('login');
     }
@@ -27,7 +32,12 @@ class AuthController extends Controller
         ];
 
         if(Auth::attempt($data)){
-            return redirect(route('home'));
+            // Nge check klo user itu admin
+            if(Auth::user()->isAdmin){
+                return redirect(route('home'));
+            } else {
+                return redirect(route('homeUser'));
+            }
         }else{
             return redirect(route('login'))->with('error', "Invalid credentials");
         }
