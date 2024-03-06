@@ -112,7 +112,7 @@
   .transparent-table th {
     position: sticky;
     top: 0;
-    z-index: 1; 
+
     border-collapse: separate;
     border: none;
     background-color: #9C0404;
