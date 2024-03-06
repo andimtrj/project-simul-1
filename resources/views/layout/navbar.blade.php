@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" style="background-color: white; margin-bottom: 10px;">
+<nav class="navbar navbar-expand-lg" style="background-color: white; margin-bottom: 10px; position: sticky; top: 0; width:100%">
     <div class="container">
         <div class="navbar-brand">
         <a href="{{ route("home") }}"><img class="mx-auto" src="../assets/Logo.png" alt="cimbLogo" style="height: 5rem; width: auto;"></a>

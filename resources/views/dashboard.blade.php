@@ -35,6 +35,7 @@
     }
 
     .div-22 {
+<<<<<<< HEAD
       box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
       background-color: #790008;
       display: flex;
@@ -45,6 +46,17 @@
       height: 100%;
       flex-direction: column;
       padding: 50px 20px;
+=======
+    box-shadow: 4.694px 9.389px 9.295px -2.817px rgba(121, 0, 8, 0.35);
+    background-color: #790008;
+    display: flex;
+    margin: 0 0 0 0; /* Updated margin to make it full-width */
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  padding: 50px 20px;
+  position:sticky;
+>>>>>>> 110f2389ca7088736c661a2899e4a7521cfd7878
     }
 
     @media (max-width: 991px) {
