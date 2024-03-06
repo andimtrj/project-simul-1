@@ -23,6 +23,7 @@
         </div>
       </div>
 
+<<<<<<< HEAD
 
       <div class="div-24">
 <<<<<<< HEAD
@@ -33,6 +34,8 @@
         </form>
 =======
 >>>>>>> 054c8a3d362bf47970f64a938c0fa97a22feb752
+=======
+>>>>>>> a1b4e77e3640606f346bf0ccc7dbf59fee888fca
         <table class="table table-hover transparent-table text-center">
           <thead class="table table-danger">
             <tr>
@@ -44,17 +47,17 @@
           </thead>
           <tbody>
             @foreach ($docs as $doc)
-              <tr>
-                <td>{{ $doc->title }}</td>
-                <td>{{ $doc->description }}</td>
-                <td>{{ $doc->updated_at }}</td>
-                <td>
-                  <a href="{{ route('versionpage', $doc->file_id) }}">
-                    <img src="assets/View.png" alt="View" class="action-button">
-                  </a>
-                </td>
-              </tr>
-            @endforeach
+                <tr>
+                    <td>{{ $doc->title }}</td>
+                    <td>{{ $doc->description }}</td>
+                    <td>{{ $doc->updated_at }}</td>
+                    <td>
+                        <a href="{{ route('versionpage', $doc->file_id) }}">
+                            <img src="../assets/View.png" alt="View" class="action-button">
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
           </tbody>
         </table>
       </div>

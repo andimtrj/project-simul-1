@@ -119,6 +119,21 @@ class DocumentController extends Controller
         ->orderBy($sortBy, $sortOrder)
         ->get();
 
+        return view('homeUser', compact('docs'));
+    }
+
+    public function searchProcessAdmin(Request $request){
+        
+        $searchResult = $request->input('search');
+
+        // Sorting
+        $sortBy = $request->query('sort_by', 'title'); 
+        $sortOrder = $request->query('sort_order', 'asc'); 
+
+        $docs = Documents::where('title', 'like', '%'. $searchResult . '%')
+        ->orderBy($sortBy, $sortOrder)
+        ->get();
+
         return view('home', compact('docs'));
     }
 
