@@ -44,43 +44,11 @@
                   <a href="{{ route('versionpage', $doc->file_id) }}">
                     <img src="assets/View.png" alt="View" class="action-button">
                   </a>
-                  <a href="{{ route('updatepage', $doc->file_id) }}">
-                    <img src="assets/Update.png" alt="Update" style="height: 28px; width: auto;">
-                  </a>
-
-                  {{-- Delete --}}
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
-                    <img src="assets/Delete.png" alt="Delete" class="action-button">
-                  </a>
                 </td>
               </tr>
-
-              <!-- Delete Pop Up -->
-              <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1"
-                aria-labelledby="updateModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <div class="modal-title">Are you sure you want to delete {{ $doc->title }}</div>
-                      <a href="#"
-                        onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
-                        <button class="btn btn-danger">Delete</button>
-                      </a>
-                      <!-- Delete Form -->
-                      <form action="{{ route('delete', $doc->file_id) }}" method="POST"
-                        id="deleteForm_{{ $doc->file_id }}" style="display: none;">
-                        @csrf
-                        @method('delete')
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
             @endforeach
           </tbody>
         </table>
-        <a href ="{{ route('uploadpage') }}" class="img-8"><img loading="lazy" src="/assets/Button.png"
-            style="height:90px; width:auto;" /></a>
       </div>
     </div>
   </div>

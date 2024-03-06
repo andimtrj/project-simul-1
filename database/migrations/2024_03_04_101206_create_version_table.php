@@ -16,7 +16,8 @@ return new class extends Migration
             $table->integer('ver_id');
             $table->text('description');
             $table->string('file');
-            $table->dateTime('created_at')->useCurrent(); // Current datetime
+            // $table->dateTime('created_at')->useCurrent(); // Current datetime
+            $table->timestamps();
         });
     }
 

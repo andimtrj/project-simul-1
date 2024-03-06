@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Storage;
 class DocumentController extends Controller
 {
     public function showAll(Request $request){
-        $docs = Documents::all();
-
         $sortBy = $request->query('sort_by', 'title'); 
         $sortOrder = $request->query('sort_order', 'asc'); 
     
@@ -19,6 +17,16 @@ class DocumentController extends Controller
 
         return view('home', compact('docs'));
     }
+
+    public function showAllUser(Request $request){
+        $sortBy = $request->query('sort_by', 'title'); 
+        $sortOrder = $request->query('sort_order', 'asc'); 
+    
+        $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+
+        return view('homeUser', compact('docs'));
+    }
+
 
     public function upload(Request $request){
         $request->validate([
@@ -33,7 +41,8 @@ class DocumentController extends Controller
         $document = Documents::create([
             'title' => $request->title,
             'description'=> $request->description,
-            'file' => $fileName
+            'file' => $fileName,
+            'version' => 1
         ]);
 
         Version::create([
@@ -53,7 +62,8 @@ class DocumentController extends Controller
 
     public function versionPage($id){
         $ver = Version::where('file_id', $id)->get();
-        return view('versionpage', compact('ver'));
+        $doc = Documents::where('file_id', $id)->first();
+        return view('view', compact('ver', 'doc'));
     }
 
     public function updatePage($id){
@@ -87,6 +97,8 @@ class DocumentController extends Controller
             'description' => $request->description,
             'file' => $fileName
         ]);
+        
+        Documents::where('file_id', $id)->increment('version');
         return redirect('home');
     }
 

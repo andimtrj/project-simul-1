@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Middleware\AdminMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ use App\Http\Controllers\DocumentController;
 // });
 
 Route::get('/home', [AuthController::class, 'home'])->name('home');
+Route::get('/homeUser', [AuthController::class, 'homeUser'])->name('homeUser');
 
 Route::get('/view', function () {
     return view('view');
@@ -31,6 +33,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [DocumentController::class, 'showAll'])->name('home');
+Route::get('/homeUser', [DocumentController::class, 'showAllUser'])->name('homeUser');
+
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 
@@ -42,10 +46,13 @@ Route::post('/register-process', [AuthController::class, "registerProcess"])->na
 
 Route::get('/logout', [AuthController::class, "logout"])->name('logout');
 
-Route::get('/upload', [DocumentController::class, 'uploadPage'])->name('uploadpage');
-Route::post('/upload', [DocumentController::class, 'upload'])->name('uploadfile');
+Route::middleware(['isAdmin'])->group(function () {
+    Route::get('/upload', [DocumentController::class, 'uploadPage'])->name('uploadpage');
+    Route::post('/upload', [DocumentController::class, 'upload'])->name('uploadfile');
+});
 
-Route::get('/version/{id}', [DocumentController::class, 'versionPage'])->name('versionpage');
+
+Route::get('/view/{id}', [DocumentController::class, 'versionPage'])->name('versionpage');
 
 Route::get('/update/{id}', [DocumentController::class, 'updatePage'])->name('updatepage');
 Route::post('/update/{id}', [DocumentController::class, 'update'])->name('updatefile');
