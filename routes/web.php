@@ -45,7 +45,7 @@ Route::get('/logout', [AuthController::class, "logout"])->name('logout');
 Route::get('/upload', [DocumentController::class, 'uploadPage'])->name('uploadpage');
 Route::post('/upload', [DocumentController::class, 'upload'])->name('uploadfile');
 
-Route::get('/version/{id}', [DocumentController::class, 'versionPage'])->name('versionpage');
+Route::get('/view/{id}', [DocumentController::class, 'versionPage'])->name('versionpage');
 
 Route::get('/update/{id}', [DocumentController::class, 'updatePage'])->name('updatepage');
 Route::post('/update/{id}', [DocumentController::class, 'update'])->name('updatefile');

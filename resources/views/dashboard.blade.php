@@ -41,7 +41,8 @@
   width: 100%;
   flex-direction: column;
   padding: 50px 20px;
-}
+  position:sticky;
+    }
 
     @media (max-width: 991px) {
       .div-22 {

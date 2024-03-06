@@ -15,6 +15,7 @@
 
 
       <div class="div-24">
+        
         <form action = "{{ route('searchProcess') }}" class="div-24" role="search" method="GET">
           <input name="search" class="form-control me-2" style="height: 50px" type="text" placeholder="Search"
             aria-label="Search">
@@ -33,13 +34,13 @@
                 <tr>
                     <td>{{ $doc->title }}</td>
                     <td>{{ $doc->description }}</td>
-                    <td>{{ $doc->created_at }}</td>
+                    <td>{{ $doc->updated_at }}</td>
                     <td>
                         <a href="{{ route('versionpage', $doc->file_id) }}">
                             <img src="assets/View.png" alt="View" class="action-button">
                         </a>
                         <a href="{{ route('updatepage', $doc->file_id) }}">
-                            <img src="assets/Update.png" alt="Update" class="action-button">
+                            <img src="assets/Update.png" alt="Update" style="height: 28px; width: auto;">
                         </a>
 
                         {{-- Delete --}}
@@ -93,9 +94,6 @@
     width: 100%;
     border-collapse: collapse;
     background-color: transparent;
-    overflow-y: auto;
-    display: block; 
-    max-height: 800px;
     }
 
   .transparent-table td {
@@ -110,14 +108,11 @@
   }
 
   .transparent-table th {
-    position: sticky;
-    top: 0;
     border-collapse: separate;
     border: none;
     background-color: #9C0404;
     color: #D9D9D9;
     font: 700 20px Poppins, sans-serif;
-    min-width: 43vh;
   }
 
 
@@ -242,7 +237,6 @@
       background-color: #790008;
       display: flex;
       margin: 69px 0 0 0;
-      /* Updated margin to make it full-width */
       align-items: center;
       width: 100%;
       flex-direction: column;

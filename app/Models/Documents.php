@@ -11,9 +11,9 @@ class Documents extends Model
     protected $fillable = [
         'title',
         'description',
+        'version',
         'file'
     ];
     protected $table = 'document';
-    public $timestamps = false;
     protected $primaryKey = 'file_id';
 }
