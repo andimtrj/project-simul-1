@@ -12,88 +12,88 @@
     <div class="div-22">
       <div class="container-title-search">
         <div class="div-23">Start Managing your SOP Documents</div>
-        <form action = "{{ route('searchProcessAdmin') }}" class="form-inline my-2 my-lg-0" style="width: 100%;" role="search" method="GET">
-        
-        <div class ="searchbar">
-          <div class="search-container">
+        <form action = "{{ route('searchProcessAdmin') }}" class="form-inline my-2 my-lg-0" style="width: 100%;"
+          role="search" method="GET">
+
+          <div class ="searchbar">
+            <div class="search-container">
               <div style = "display: flex; width:100%">
-              <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width:90%">
-              </form>
-              <div class="dropdown d-flex justify-content-end align-self-end" style="width: 10%;">
-  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-    <i class="fa-solid fa-sort"></i>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item" href="#">Sort by Title</a></li>
-    <li><a class="dropdown-item" href="#">Sort by Timestamp</a></li>
-  </ul>
-</div>
-            </div>
-  
+                <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search"
+                  aria-label="Search" style="width:90%">
+        </form>
+        <div class="dropdown d-flex justify-content-end align-self-end" style="width: 10%; height: 100%;">
+          <button class="btn btn-light dropdown-toggle w-aut" style="width: 30%" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fa-solid fa-sort"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item">Sort by Title</a></li>
+            <li><a class="dropdown-item">Sort by Timestamp</a></li>
+          </ul>
         </div>
       </div>
+    </div>
+  </div>
 
 
 
-      <div class="div-24">
-        <table class="table table-hover transparent-table text-center">
-          <thead class="table table-danger">
-            <tr>
-              <th scope="col">Doc. Title</th>
-              <th scope="col">Description</th>
-              <th scope="col">Timestamp</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($docs as $doc)
-              <tr>
-                <td>{{ $doc->title }}</td>
-                <td>{{ $doc->description }}</td>
-                <td>{{ $doc->updated_at }}</td>
-                <td>
-                  <a href="{{ route('versionpage', $doc->file_id) }}">
-                    <img src="assets/View.png" alt="View" class="action-button">
+  <div class="div-24">
+    <table class="table table-hover transparent-table text-center">
+      <thead class="table table-danger">
+        <tr>
+          <th scope="col">Doc. Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Timestamp</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($docs as $doc)
+          <tr>
+            <td>{{ $doc->title }}</td>
+            <td>{{ $doc->description }}</td>
+            <td>{{ $doc->updated_at }}</td>
+            <td>
+              <a href="{{ route('versionpage', $doc->file_id) }}">
+                <img src="assets/View.png" alt="View" class="action-button">
+              </a>
+              <a href="{{ route('updatepage', $doc->file_id) }}">
+                <img src="assets/Update.png" alt="Update" style="height: 28px; width: auto;">
+              </a>
+
+              {{-- Delete --}}
+              <a data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
+                <img src="assets/Delete.png" alt="Delete" class="action-button">
+              </a>
+            </td>
+          </tr>
+
+          <!-- Delete Pop Up -->
+          <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1" aria-labelledby="updateModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content popup-delete">
+                <div class="modal-body text-center">
+                  <div class="modal-title mb-3">Are you sure you want </br> to delete {{ $doc->title }}?</div>
+                  <a href="#"
+                    onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
+                    <button class="btn btn-danger">Delete</button>
                   </a>
-                  <a href="{{ route('updatepage', $doc->file_id) }}">
-                    <img src="assets/Update.png" alt="Update" style="height: 28px; width: auto;">
-                  </a>
-
-                  {{-- Delete --}}
-                  <a data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
-                    <img src="assets/Delete.png" alt="Delete" class="action-button">
-                  </a>
-                </td>
-              </tr>
-
-              <!-- Delete Pop Up -->
-              <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1"
-                aria-labelledby="updateModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content popup-delete">
-                    <div class="modal-body text-center">
-                      <div class="modal-title mb-3">Are you sure you want to delete {{ $doc->title }}?</div>
-                      <a href="#"
-                        onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
-                        <button class="btn btn-danger">Delete</button>
-                      </a>
-                      <!-- Delete Form -->
-                      <form action="{{ route('delete', $doc->file_id) }}" method="POST"
-                        id="deleteForm_{{ $doc->file_id }}" style="display: none;">
-                        @csrf
-                        @method('delete')
-                      </form>
-                    </div>
-                  </div>
+                  <!-- Delete Form -->
+                  <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}"
+                    style="display: none;">
+                    @csrf
+                    @method('delete')
+                  </form>
                 </div>
               </div>
-            @endforeach
-          </tbody>
-        </table>
-        <a href ="{{ route('uploadpage') }}" class="img-8"><img loading="lazy" src="/assets/Button.png"
-            style="height:90px; width:auto;" /></a>
-      </div>
-    </div>
+            </div>
+          </div>
+        @endforeach
+      </tbody>
+    </table>
+    <a href ="{{ route('uploadpage') }}" class="img-8"><img loading="lazy" src="/assets/Button.png"
+        style="height:90px; width:auto;" /></a>
   </div>
 
   <script>
@@ -104,14 +104,19 @@
   </script>
 
   <style>
-    .popup-delete{
+    .action-button{
+      cursor: pointer;
+    }
+
+    .popup-delete {
+      width: auto;
       height: auto;
       align-items: center;
       align-content: center;
       justify-content: center;
     }
 
-    .container-title-search{
+    .container-title-search {
       width: 100%
     }
 

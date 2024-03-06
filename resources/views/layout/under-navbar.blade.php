@@ -2,7 +2,7 @@
 <div class="div-10">SOP Document Management System</div>
 <div class="div-11">
   <div class="div-12">
-    <div class="column">
+    <div class="column column-hover">
       <div class="div-13">
         <div class="div-14">
           <img loading="lazy" srcset="assets/Octo1.png" class="img-3" />
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="column-2">
+    <div class="column column-hover">
       <div class="div-16">
         <div class="div-17">
           <img loading="lazy" srcset="assets/Octo2.png" class="img-4" />
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="column-3">
+    <div class="column column-hover">
       <div class="div-16">
         <div class="div-20">
           <img loading="lazy" srcset="assets/Octo3.png" class="img-5" />
@@ -80,6 +80,12 @@
       width: 33%;
       margin-left: 0px;
     }
+    .column-hover{
+      transition: transform 0.3s ease;
+    }
+    .column-hover:hover{
+      transform: scale(1.1); /* Scale up by 10% */
+    }
     @media (max-width: 991px) {
       .column {
         width: 100%;
@@ -134,18 +140,6 @@
         white-space: initial;
       }
     }
-    .column-2 {
-      display: flex;
-      flex-direction: column;
-      line-height: normal;
-      width: 33%;
-      margin-left: 20px;
-    }
-    @media (max-width: 991px) {
-      .column-2 {
-        width: 100%;
-      }
-    }
     .div-16 {
       display: flex;
       flex-grow: 1;
@@ -195,18 +189,7 @@
         white-space: initial;
       }
     }
-    .column-3 {
-      display: flex;
-      flex-direction: column;
-      line-height: normal;
-      width: 33%;
-      margin-left: 20px;
-    }
-    @media (max-width: 991px) {
-      .column-3 {
-        width: 100%;
-      }
-    }
+
     .div-19 {
       display: flex;
       flex-grow: 1;
