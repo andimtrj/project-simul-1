@@ -12,13 +12,14 @@
     <div class="div-22">
       <div class="div-23">Start Managing your SOP Documents</div>
 
-
-
+      <div class ="searchbar">
+      <form action = "{{ route('searchProcess') }}" class="form-inline my-2 my-lg-0" role="search" method="GET">
+        <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button  name = "search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form></div>
       <div class="div-24">
-        <form action = "{{ route('searchProcess') }}" class="div-24" role="search" method="GET">
-          <input name="search" class="form-control me-2" style="height: 50px" type="text" placeholder="Search"
-            aria-label="Search">
-        </form>
+        
+        
         <table class="table table-hover transparent-table text-center">
           <thead class="table table-danger">
             <tr>
@@ -39,43 +40,46 @@
                             <img src="assets/View.png" alt="View" class="action-button">
                         </a>
                         <a href="{{ route('updatepage', $doc->file_id) }}">
-                            <img src="assets/Update.png" alt="Update" class="action-button">
+                            <img src="assets/Update.png" alt="Update" style="height: 28px; width: auto;">
                         </a>
 
-                        {{-- Delete --}}
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
-                            <img src="assets/Delete.png" alt="Delete" class="action-button">
-                        </a>
-                    </td>
-                </tr>
+                  {{-- Delete --}}
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
+                    <img src="assets/Delete.png" alt="Delete" class="action-button">
+                  </a>
+                </td>
+              </tr>
 
-                <!-- Delete Pop Up -->
-                <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="modal-title">Are you sure you want to delete {{ $doc->title }}</div>
-                                <a href="#" onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
-                                    <button class="btn btn-danger">Delete</button>
-                                </a>
-                                <!-- Delete Form -->
-                                <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
-                                    @csrf
-                                    @method('delete')
-                                </form>
-                            </div>
-                        </div>
+              <!-- Delete Pop Up -->
+              <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1"
+                aria-labelledby="updateModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <div class="modal-title">Are you sure you want to delete {{ $doc->title }}</div>
+                      <a href="#"
+                        onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
+                        <button class="btn btn-danger">Delete</button>
+                      </a>
+                      <!-- Delete Form -->
+                      <form action="{{ route('delete', $doc->file_id) }}" method="POST"
+                        id="deleteForm_{{ $doc->file_id }}" style="display: none;">
+                        @csrf
+                        @method('delete')
+                      </form>
                     </div>
+                  </div>
                 </div>
-                @endforeach
+              </div>
+            @endforeach
           </tbody>
         </table>
-
         <a href ="{{ route('uploadpage') }}" class="img-8"><img loading="lazy" src="/assets/Button.png"
             style="height:90px; width:auto;" /></a>
       </div>
     </div>
   </div>
+
   <script>
     document.getElementById("submitButton").addEventListener("click", function(event) {
       event.preventDefault(); // Prevent the default behavior of the link
@@ -84,6 +88,11 @@
   </script>
 
   <style>
+
+    .searchbar{
+      align-items:left;
+    }
+
     .button-action {
       width: auto;
       height: 20px;
@@ -99,16 +108,16 @@
     max-height: 300px;
     }
 
-  .transparent-table td {
-    color: white;
-    padding: 10px;
-    background-color: transparent;
-    border-bottom: 1px solid #ffff;
-    border-collapse: separate;
-    border: none;
-    font: 700 20px Poppins, sans-serif;
-    border-bottom: 2px solid #ffff;
-  }
+    .transparent-table td {
+      color: white;
+      padding: 10px;
+      background-color: transparent;
+      border-bottom: 1px solid #ffff;
+      border-collapse: separate;
+      border: none;
+      font: 700 20px Poppins, sans-serif;
+      border-bottom: 2px solid #ffff;
+    }
 
   .transparent-table th {
     position: sticky;
@@ -243,7 +252,6 @@
       background-color: #790008;
       display: flex;
       margin: 69px 0 0 0;
-      /* Updated margin to make it full-width */
       align-items: center;
       width: 100%;
       flex-direction: column;
