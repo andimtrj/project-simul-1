@@ -12,7 +12,7 @@
     <div class="div-22">
       <div class="container-title-search">
         <div class="div-23">Start Managing your SOP Documents</div>
-        <form action = "{{ route('searchProcessAdmin') }}" class="form-inline my-2 my-lg-0" style="width: 100%;"
+        <form action = "{{ route('searchProcess') }}" class="form-inline my-2 my-lg-0" style="width: 100%;"
           role="search" method="GET">
 
           <div class ="searchbar">
@@ -27,8 +27,8 @@
             <i class="fa-solid fa-sort fa-2xl"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item">Sort by Title</a></li>
-            <li><a class="dropdown-item">Sort by Timestamp</a></li>
+            <li><a class="dropdown-item" href="{{ route("sort") }}">Sort by Title</a></li>
+            <li><a class="dropdown-item" href="{{ route("homeUser") }}">Sort by Timestamp</a></li>
           </ul>
         </div>
       </div>
