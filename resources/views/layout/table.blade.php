@@ -15,13 +15,13 @@
           <td class="max-desc">{{ $doc->description }}</td>
           <td>{{ $doc->updated_at }}</td>
           <td>
-            <a href="{{ route('versionpageAdmin', $doc->file_id) }}">
+            <a href="{{ route('versionpageAdmin', $doc->file_id) }}" style="text-decoration: none">
               <img src="../assets/View.png" alt="View" class="action-button">
             </a>
-            <a href="{{ route('updatepage', $doc->file_id) }}">
-              <img src="../assets/Update.png" alt="Update" style="height: 28px; width: auto;">
+            <a href="{{ route('updatepage', $doc->file_id) }}" style="text-decoration: none">
+              <img src="../assets/Update.png" alt="Update" class="action-button" style="height: 28px; width: auto;">
             </a>
-            <a data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
+            <a data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}" style="text-decoration: none">
               <img src="../assets/Delete.png" alt="Delete" class="action-button">
             </a>
           </td>

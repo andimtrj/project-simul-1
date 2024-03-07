@@ -63,6 +63,7 @@
 
     .action-button {
       cursor: pointer;
+      text-decoration: none;
     }
 
     .popup-delete {
