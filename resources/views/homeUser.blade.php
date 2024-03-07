@@ -87,7 +87,7 @@
     background-color: #9C0404;
     color: #D9D9D9;
     font: 700 20px Poppins, sans-serif;
-    min-width: 250px
+    min-width: 50vh;
   }
 
 
