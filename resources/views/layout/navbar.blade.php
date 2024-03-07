@@ -10,6 +10,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div>
+      {{-- @dd($user); --}}
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div style="color: #9C0404;" class="poppins-reguler">Welcome, <a id="welcomeText"></a></div>
         <ul class="navbar-nav">
@@ -69,7 +70,7 @@
       setTimeout(function () {
         document.getElementById("welcomeText").innerHTML = '';
         typeWriter(text, 0, speed);
-      }, 2000); // Adjust the delay before starting the next iteration
+      }, 5000); // Adjust the delay before starting the next iteration
     }
   }
 
@@ -83,7 +84,7 @@
   window.addEventListener('scroll', function() {
     var navbar = document.getElementById('navbar');
     var scrollPosition = window.scrollY;
-    var transparency = 0.1;
+    var transparency = 0.5;
 
     if (scrollPosition > 0) {
       navbar.style.backgroundColor = 'rgba(255, 255, 255, ' + transparency + ')';

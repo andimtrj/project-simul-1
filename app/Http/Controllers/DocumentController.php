@@ -4,26 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Models\Documents;
 use App\Models\Version;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
-    public function showAll(Request $request){
+
+    public function sortTitle(Request $request){
         $sortBy = $request->query('sort_by', 'title'); 
         $sortOrder = $request->query('sort_order', 'asc'); 
     
         $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+        return view('home', compact('docs'));
+    }
 
+    
+    public function showAll(Request $request){
+        // $sortBy = $request->query('sort_by', 'title'); 
+        // $sortOrder = $request->query('sort_order', 'asc'); 
+    
+        // $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+        $docs = Documents::all();
         return view('home', compact('docs'));
     }
 
     public function showAllUser(Request $request){
-        $sortBy = $request->query('sort_by', 'title'); 
-        $sortOrder = $request->query('sort_order', 'asc'); 
+        // $sortBy = $request->query('sort_by', 'title'); 
+        // $sortOrder = $request->query('sort_order', 'asc'); 
     
-        $docs = Documents::orderBy($sortBy, $sortOrder)->get();
-
+        // $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+        $docs = Documents::all();
         return view('homeUser', compact('docs'));
     }
 
@@ -61,6 +72,12 @@ class DocumentController extends Controller
     }
 
     public function versionPage($id){
+        $ver = Version::where('file_id', $id)->get();
+        $doc = Documents::where('file_id', $id)->first();
+        return view('viewuser', compact('ver', 'doc'));
+    }
+
+    public function versionPageAdmin($id){
         $ver = Version::where('file_id', $id)->get();
         $doc = Documents::where('file_id', $id)->first();
         return view('view', compact('ver', 'doc'));

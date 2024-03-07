@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public function home(){
-        $data = User::all();
-        return view('home', compact('users'));
+        return view('home');
     }
 
     public function homeUser(){

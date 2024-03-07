@@ -1,11 +1,11 @@
-<img class="mx-auto" src="assets/Logo.png" alt="cimbLogo" style="height: 12rem; width: auto;">
+<img class="mx-auto" src="../assets/Logo.png" alt="cimbLogo" style="height: 12rem; width: auto;">
 <div class="div-10">SOP Document Management System</div>
 <div class="div-11">
   <div class="div-12">
     <div class="column column-hover">
       <div class="div-13">
         <div class="div-14">
-          <img loading="lazy" srcset="assets/Octo1.png" class="img-3" />
+          <img loading="lazy" srcset="../assets/Octo1.png" class="img-3" />
           <div class="div-15">
             <span style="font-weight: 700">.pdf</span>
             Files
@@ -16,7 +16,7 @@
     <div class="column column-hover">
       <div class="div-16">
         <div class="div-17">
-          <img loading="lazy" srcset="assets/Octo2.png" class="img-4" />
+          <img loading="lazy" srcset="../assets/Octo2.png" class="img-4" />
           <div class="div-18">Max. 3mb</div>
         </div>
       </div>
@@ -24,7 +24,7 @@
     <div class="column column-hover">
       <div class="div-16">
         <div class="div-20">
-          <img loading="lazy" srcset="assets/Octo3.png" class="img-5" />
+          <img loading="lazy" srcset="../assets/Octo3.png" class="img-5" />
           <div class="div-21">
             Upload
             </br>
