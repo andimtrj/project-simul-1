@@ -27,8 +27,8 @@
             <i class="fa-solid fa-sort fa-2xl"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="{{ route("sort") }}">Sort by Title</a></li>
-              <li><a class="dropdown-item" href="{{ route('home') }}">Sort by Timestamp</a></li>
+              <li><a class="dropdown-item" href="{{ route("sortAdmin") }}">Sort by Title</a></li>
+              <li><a class="dropdown-item" href="{{ route("home") }}">Sort by Timestamp</a></li>
           </ul>
       </div>
       </div>
@@ -63,6 +63,7 @@
 
     .action-button {
       cursor: pointer;
+      
     }
 
     .popup-delete {

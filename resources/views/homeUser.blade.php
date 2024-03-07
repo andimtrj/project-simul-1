@@ -27,7 +27,7 @@
             <i class="fa-solid fa-sort fa-2xl"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="{{ route("sort") }}">Sort by Title</a></li>
+            <li><a class="dropdown-item" href="{{ route("sortUser") }}">Sort by Title</a></li>
             <li><a class="dropdown-item" href="{{ route("homeUser") }}">Sort by Timestamp</a></li>
           </ul>
         </div>
