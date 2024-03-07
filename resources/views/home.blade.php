@@ -22,15 +22,14 @@
                   aria-label="Search" style="width:90%">
         </form>
         <div class="dropdown d-flex justify-content-end align-self-end" style="width: 10%; height: 100%;">
-          <button class="btn btn-light dropdown-toggle w-aut" style="width: 30%" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <i class="fa-solid fa-sort"></i>
+          <button class="btn btn-light dropdown-toggle w-aut" style="width: 30%" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-sort"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item">Sort by Title</a></li>
-            <li><a class="dropdown-item">Sort by Timestamp</a></li>
+              <li><a class="dropdown-item" href="{{ route("sort") }}">Sort by Title</a></li>
+              <li><a class="dropdown-item" href="{{ route('home') }}">Sort by Timestamp</a></li>
           </ul>
-        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -48,6 +47,7 @@
         </tr>
       </thead>
       <tbody>
+        
         @foreach ($docs as $doc)
           <tr>
             <td>{{ $doc->title }}</td>
