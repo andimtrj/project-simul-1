@@ -22,9 +22,9 @@
                   aria-label="Search" style="width:90%">
         </form>
         <div class="dropdown d-flex justify-content-end align-self-end" style="width: 10%; height: 100%;">
-          <button class="btn btn-light dropdown-toggle w-aut" style="width: 30%" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <i class="fa-solid fa-sort fa-xl"></i>
+          <button class="btn btn-light dropdown-toggle w-aut" style="width: 80%" type="button" id="dropdownMenuButton"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-sort fa-2xl"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <li><a class="dropdown-item" href="{{ route("sort") }}">Sort by Title</a></li>
@@ -35,67 +35,7 @@
     </div>
   </div>
 
-
-
-  <div class="div-24">
-    <table class="table table-hover transparent-table text-center">
-      <thead class="table table-danger">
-        <tr>
-          <th scope="col">Doc. Title</th>
-          <th scope="col">Description</th>
-          <th scope="col">Timestamp</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        @foreach ($docs as $doc)
-          <tr>
-            <td>{{ $doc->title }}</td>
-            <td>{{ $doc->description }}</td>
-            <td>{{ $doc->updated_at }}</td>
-            <td>
-              <a href="{{ route('versionpage', $doc->file_id) }}">
-                <img src="assets/View.png" alt="View" class="action-button">
-              </a>
-              <a href="{{ route('updatepage', $doc->file_id) }}">
-                <img src="assets/Update.png" alt="Update" style="height: 28px; width: auto;">
-              </a>
-
-              {{-- Delete --}}
-              <a data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
-                <img src="assets/Delete.png" alt="Delete" class="action-button">
-              </a>
-            </td>
-          </tr>
-
-          <!-- Delete Pop Up -->
-          <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1" aria-labelledby="updateModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content popup-delete">
-                <div class="modal-body text-center">
-                  <div class="modal-title mb-3">Are you sure you want </br> to delete {{ $doc->title }}?</div>
-                  <a href="#"
-                    onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
-                    <button class="btn btn-danger">Delete</button>
-                  </a>
-                  <!-- Delete Form -->
-                  <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}"
-                    style="display: none;">
-                    @csrf
-                    @method('delete')
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        @endforeach
-      </tbody>
-    </table>
-    <a href ="{{ route('uploadpage') }}" class="img-8"><img loading="lazy" src="/assets/Button.png"
-        style="height:90px; width:auto;" /></a>
-  </div>
+  @include('layout.table')
 
   <script>
     document.getElementById("submitButton").addEventListener("click", function(event) {
@@ -105,7 +45,23 @@
   </script>
 
   <style>
-    .action-button{
+    .max-desc {
+      max-width: 300px;
+      /* Adjust the max width as needed */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* white-space: nowrap; */
+    }
+
+    .max-title {
+      max-width: 200px;
+      /* Adjust the max width as needed */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .action-button {
       cursor: pointer;
     }
 
@@ -156,8 +112,11 @@
       border-bottom: 1px solid #ffff;
       border-collapse: separate;
       border: none;
+      display: table-cell;
       font: 20px Poppins, sans-serif;
       border-bottom: 2px solid #ffff;
+      word-wrap: break-word;
+      width: 100%;
     }
 
     .transparent-table th {
@@ -166,7 +125,7 @@
       background-color: #9C0404;
       color: white;
       font: 700 20px Poppins, sans-serif;
-      min-width: 50vh;
+      min-width: 41vh;
     }
 
 
@@ -690,7 +649,7 @@
       max-width: 100%;
     }
 
-    .img-8:hover{
+    .img-8:hover {
       transform: scale(1.1);
     }
 

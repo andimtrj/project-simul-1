@@ -3,48 +3,40 @@
   Home
 @endsection
 
-@extends('layout.navbar')
+@extends('layout.navbaruser')
 
 @section('content')
   <div class="container-content">
     @include('layout.under-navbar')
 
     <div class="div-22">
-      
-      <div class="div-23">Start Managing your SOP Documents</div>
+      <div class="container-title-search">
+        <div class="div-23">Start Managing your SOP Documents</div>
+        <form action = "{{ route('searchProcessAdmin') }}" class="form-inline my-2 my-lg-0" style="width: 100%;"
+          role="search" method="GET">
 
-      <div class="div-24">
-        <form action = "{{ route('searchProcess') }}" class="div-24" role="search" method="GET">
-          <input name="search" class="form-control me-2" style="height: 50px" type="text" placeholder="Search"
-            aria-label="Search">
+          <div class ="searchbar">
+            <div class="search-container">
+              <div style = "display: flex; width:100%">
+                <input name = "search" class="form-control mr-sm-2" type="search" placeholder="Search"
+                  aria-label="Search" style="width:90%">
         </form>
-        <table class="table table-hover transparent-table text-center">
-          <thead class="table table-danger">
-            <tr>
-              <th scope="col">Doc. Title</th>
-              <th scope="col">Description</th>
-              <th scope="col">Timestamp</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($docs as $doc)
-                <tr>
-                    <td>{{ $doc->title }}</td>
-                    <td>{{ $doc->description }}</td>
-                    <td>{{ $doc->updated_at }}</td>
-                    <td>
-                        <a href="{{ route('versionpage', $doc->file_id) }}">
-                            <img src="assets/View.png" alt="View" class="action-button">
-                        </a>
-                    </td>
-                </tr>
-                @endforeach
-          </tbody>
-        </table>
+        <div class="dropdown d-flex justify-content-end align-self-end" style="width: 10%; height: 100%;">
+          <button class="btn btn-light dropdown-toggle w-aut" style="width: 80%" type="button" id="dropdownMenuButton"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-sort fa-2xl"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item">Sort by Title</a></li>
+            <li><a class="dropdown-item">Sort by Timestamp</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
+
+  @include('layout.table-user')
+
   <script>
     document.getElementById("submitButton").addEventListener("click", function(event) {
       event.preventDefault(); // Prevent the default behavior of the link
@@ -53,6 +45,51 @@
   </script>
 
   <style>
+    .max-desc {
+      max-width: 300px;
+      /* Adjust the max width as needed */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* white-space: nowrap; */
+    }
+
+    .max-title {
+      max-width: 200px;
+      /* Adjust the max width as needed */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .action-button {
+      cursor: pointer;
+    }
+
+    .popup-delete {
+      width: auto;
+      height: auto;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+    }
+
+    .container-title-search {
+      width: 100%
+    }
+
+    .searchbar {
+      display: flex;
+      justify-content: left;
+      align-items: left;
+    }
+
+    .search-container {
+      height: 5vh;
+      display: flex;
+      align-items: left;
+      width: 100%;
+    }
+
     .button-action {
       width: auto;
       height: 20px;
@@ -60,35 +97,36 @@
 
     .transparent-table {
       table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    background-color: transparent;
-    overflow-y: auto;
-    display: block; 
-    max-height: 300px;
+      width: 100%;
+      border-collapse: collapse;
+      background-color: transparent;
+      max-height: 300px;
+      overflow-y: scroll;
+      display: block;
     }
 
-  .transparent-table td {
-    color: white;
-    padding: 10px;
-    background-color: transparent;
-    border-bottom: 1px solid #ffff;
-    border-collapse: separate;
-    border: none;
-    font: 700 20px Poppins, sans-serif;
-    border-bottom: 2px solid #ffff;
-  }
+    .transparent-table td {
+      color: white;
+      padding: 10px;
+      background-color: transparent;
+      border-bottom: 1px solid #ffff;
+      border-collapse: separate;
+      border: none;
+      display: table-cell;
+      font: 20px Poppins, sans-serif;
+      border-bottom: 2px solid #ffff;
+      word-wrap: break-word;
+      width: 100%;
+    }
 
-  .transparent-table th {
-    position: sticky;
-    top: 0;
-    border-collapse: separate;
-    border: none;
-    background-color: #9C0404;
-    color: #D9D9D9;
-    font: 700 20px Poppins, sans-serif;
-    min-width: 50vh;
-  }
+    .transparent-table th {
+      border-collapse: separate;
+      border: none;
+      background-color: #9C0404;
+      color: white;
+      font: 700 20px Poppins, sans-serif;
+      min-width: 41vh;
+    }
 
 
     .container-content {
@@ -212,7 +250,6 @@
       background-color: #790008;
       display: flex;
       margin: 69px 0 0 0;
-      /* Updated margin to make it full-width */
       align-items: center;
       width: 100%;
       flex-direction: column;
@@ -231,6 +268,7 @@
       text-align: center;
       align-self: center;
       margin-top: 6px;
+      margin-bottom: 30px;
       font: 600 35px/113% Poppins, sans-serif;
     }
 
@@ -246,8 +284,7 @@
       font-size: 20px;
       font-weight: 700;
       white-space: nowrap;
-      margin: 31px 0 49px;
-      padding: 0 10px;
+      margin: 15px 0 49px;
       width: 100%;
     }
 
@@ -602,6 +639,7 @@
     }
 
     .img-8 {
+      transition: transform 0.3s ease;
       aspect-ratio: 0.99;
       object-fit: auto;
       object-position: center;
@@ -609,6 +647,10 @@
       align-self: end;
       margin-top: 42px;
       max-width: 100%;
+    }
+
+    .img-8:hover {
+      transform: scale(1.1);
     }
 
     @media (max-width: 991px) {

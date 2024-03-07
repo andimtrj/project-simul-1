@@ -74,6 +74,12 @@ class DocumentController extends Controller
     public function versionPage($id){
         $ver = Version::where('file_id', $id)->get();
         $doc = Documents::where('file_id', $id)->first();
+        return view('viewuser', compact('ver', 'doc'));
+    }
+
+    public function versionPageAdmin($id){
+        $ver = Version::where('file_id', $id)->get();
+        $doc = Documents::where('file_id', $id)->first();
         return view('view', compact('ver', 'doc'));
     }
 
