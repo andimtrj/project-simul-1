@@ -21,7 +21,6 @@
                 style="width: 60px; height: 60px; object-fit: cover;">
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" style="font-size: 25px" href="Super.html">Profile</a></li>
               <li><a class="dropdown-item" style="font-size: 25px" href="{{ route('logout') }}">Log Out</a></li>
             </ul>
           </li>
