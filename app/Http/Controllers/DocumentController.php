@@ -102,6 +102,7 @@ class DocumentController extends Controller
         return redirect('home');
     }
 
+
     public function downloaddoc($filename){
         $path = '/public/' . $filename;
         return Storage::download($path, $filename);
@@ -138,8 +139,14 @@ class DocumentController extends Controller
     }
 
     public function delete($id){
+        $del = Version::where('file_id', $id)->get();
+
+        foreach($del as $del){
+            Storage::delete('/public/' . $del->file);
+        }
         Version::where('file_id', $id)->delete();
         Documents::where('file_id', $id)->delete();
+
         return redirect('home');
     }
 }

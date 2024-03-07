@@ -75,7 +75,7 @@
 
   // Call the typing function when the page is loaded
   window.onload = function () {
-    var text = "Admin!";
+    var text = "{{ auth()->user()->name }}";
     var speed = 200; // Adjust typing speed here
     typeWriter(text, 0, speed);
   };
