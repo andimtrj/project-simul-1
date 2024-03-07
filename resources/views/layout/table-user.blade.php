@@ -23,6 +23,4 @@
       @endforeach
     </tbody>
   </table>
-  <a href ="{{ route('uploadpage') }}" class="img-8"><img loading="lazy" src="/assets/Button.png"
-      style="height:90px; width:auto;" /></a>
 </div>
