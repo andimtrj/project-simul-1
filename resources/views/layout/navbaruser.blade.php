@@ -2,7 +2,7 @@
   style="background-color: white; margin-bottom: 10px; position: sticky; top: 0; width:100%">
   <div class="container">
     <div class="navbar-brand">
-      <a href="{{ route('home') }}"><img class="mx-auto" src="../assets/Logo.png" alt="cimbLogo"
+      <a href="{{ route('homeUser') }}"><img class="mx-auto" src="../assets/Logo.png" alt="cimbLogo"
           style="height: 5rem; width: auto;"></a>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
