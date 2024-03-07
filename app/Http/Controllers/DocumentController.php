@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class DocumentController extends Controller
 {
 
-    public function sortTitle(Request $request){
+    public function sortTitleAdmin(Request $request){
         $sortBy = $request->query('sort_by', 'title'); 
         $sortOrder = $request->query('sort_order', 'asc'); 
     
@@ -19,7 +19,15 @@ class DocumentController extends Controller
         return view('home', compact('docs'));
     }
 
+    public function sortTitleUser(Request $request){
+        $sortBy = $request->query('sort_by', 'title'); 
+        $sortOrder = $request->query('sort_order', 'asc'); 
     
+        $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+        return view('homeUser', compact('docs'));
+    }
+    
+
     public function showAll(Request $request){
         // $sortBy = $request->query('sort_by', 'title'); 
         // $sortOrder = $request->query('sort_order', 'asc'); 
