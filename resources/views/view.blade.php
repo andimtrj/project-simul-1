@@ -3,7 +3,7 @@
   View
 @endsection
 
-@extends('layout.nagit vbar')
+@extends('layout.navbar')
 
 
 @section('content')
@@ -37,7 +37,7 @@
         </tbody>
       </table>
       <form action="{{ route('updatepage', $doc->file_id) }}" method="GET">
-        <button type="submit" class="div-4 btn btn-danger btn-block mb-4 mx-auto">Update Document</button>
+        <button type="submit" class="div-4 btn btn-danger mb-4 mx-auto">Update Document</button>
       </form>
     </div>
   </div>
@@ -56,7 +56,6 @@
       justify-content: center;
       align-items: center;
       border-radius: 14.063px;
-      background-color: #FF0606;
       width: 298px;
       max-width: 100%;
       margin-top: 30px;
@@ -78,7 +77,8 @@
       width: 100%;
       border-collapse: collapse;
       background-color: transparent;
-
+      overflow-y: auto;
+      display: block;
     }
 
     .transparent-table td {
@@ -100,7 +100,8 @@
       border: none;
       background-color: #9C0404;
       font: 700 20px Poppins, sans-serif;
-      color: #D9D9D9;
+      color: white;
+      min-width: 67vh;
     }
 
     .div0 {
@@ -108,7 +109,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 80px;
+      padding: 0 20px;
       
     }
 

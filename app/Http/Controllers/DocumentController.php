@@ -4,26 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Models\Documents;
 use App\Models\Version;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
-    public function showAll(Request $request){
+
+    public function sortTitle(Request $request){
         $sortBy = $request->query('sort_by', 'title'); 
         $sortOrder = $request->query('sort_order', 'asc'); 
     
         $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+        return view('home', compact('docs'));
+    }
 
+    
+    public function showAll(Request $request){
+        // $sortBy = $request->query('sort_by', 'title'); 
+        // $sortOrder = $request->query('sort_order', 'asc'); 
+    
+        // $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+        $docs = Documents::all();
         return view('home', compact('docs'));
     }
 
     public function showAllUser(Request $request){
-        $sortBy = $request->query('sort_by', 'title'); 
-        $sortOrder = $request->query('sort_order', 'asc'); 
+        // $sortBy = $request->query('sort_by', 'title'); 
+        // $sortOrder = $request->query('sort_order', 'asc'); 
     
-        $docs = Documents::orderBy($sortBy, $sortOrder)->get();
-
+        // $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+        $docs = Documents::all();
         return view('homeUser', compact('docs'));
     }
 
@@ -102,6 +113,7 @@ class DocumentController extends Controller
         return redirect('home');
     }
 
+
     public function downloaddoc($filename){
         $path = '/public/' . $filename;
         return Storage::download($path, $filename);
@@ -119,12 +131,33 @@ class DocumentController extends Controller
         ->orderBy($sortBy, $sortOrder)
         ->get();
 
+        return view('homeUser', compact('docs'));
+    }
+
+    public function searchProcessAdmin(Request $request){
+        
+        $searchResult = $request->input('search');
+
+        // Sorting
+        $sortBy = $request->query('sort_by', 'title'); 
+        $sortOrder = $request->query('sort_order', 'asc'); 
+
+        $docs = Documents::where('title', 'like', '%'. $searchResult . '%')
+        ->orderBy($sortBy, $sortOrder)
+        ->get();
+
         return view('home', compact('docs'));
     }
 
     public function delete($id){
+        $del = Version::where('file_id', $id)->get();
+
+        foreach($del as $del){
+            Storage::delete('/public/' . $del->file);
+        }
         Version::where('file_id', $id)->delete();
         Documents::where('file_id', $id)->delete();
+
         return redirect('home');
     }
 }
