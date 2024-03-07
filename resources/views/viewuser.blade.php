@@ -115,7 +115,9 @@
       background-color: #9C0404;
       color: white;
       font: 700 20px Poppins, sans-serif;
-      min-width: 41vh;
+      min-width: 65vh;
+      position: sticky;
+      top: 0;
     }
 
     .div0 {

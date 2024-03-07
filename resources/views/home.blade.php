@@ -127,6 +127,8 @@
       color: white;
       font: 700 20px Poppins, sans-serif;
       min-width: 41vh;
+      position: sticky;
+      top: 0;
     }
 
 
