@@ -24,7 +24,7 @@
         <div class="dropdown d-flex justify-content-end align-self-end" style="width: 10%; height: 100%;">
           <button class="btn btn-light dropdown-toggle w-aut" style="width: 30%" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
             aria-expanded="false">
-            <i class="fa-solid fa-sort"></i>
+            <i class="fa-solid fa-sort fa-xl"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li><a class="dropdown-item">Sort by Title</a></li>
@@ -144,6 +144,8 @@
       border-collapse: collapse;
       background-color: transparent;
       max-height: 300px;
+      overflow-y: scroll;
+      display: block;
     }
 
     .transparent-table td {
@@ -163,7 +165,7 @@
       background-color: #9C0404;
       color: white;
       font: 700 20px Poppins, sans-serif;
-      min-width: 250px
+      min-width: 50vh;
     }
 
 

@@ -77,7 +77,8 @@
       width: 100%;
       border-collapse: collapse;
       background-color: transparent;
-
+      overflow-y: auto;
+      display: block;
     }
 
     .transparent-table td {
@@ -100,6 +101,7 @@
       background-color: #9C0404;
       font: 700 20px Poppins, sans-serif;
       color: white;
+      min-width: 67vh;
     }
 
     .div0 {
@@ -107,7 +109,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 80px;
+      padding: 0 20px;
       
     }
 
