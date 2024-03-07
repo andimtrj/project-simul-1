@@ -14,7 +14,7 @@
         <div class="poppins-semibold login-title text-danger h1 mb-5 display-3" style="font-weight: 500; margin-top: 35px">
           Log In</div>
 
-        @if(session('error'))
+        @if (session('error'))
           <div class="poppins-reguler error-message" role="alert">
             {{ session('error') }}
           </div>
@@ -46,8 +46,6 @@
           Don't have an account?
         </a>
   </form>
-  </div>
-  </div>
 
 
   <style>

@@ -40,33 +40,11 @@
           {{ $message }}
         </div>
       @enderror
-
-
-      <div class="div-8">Upload Document</div>
-      {{-- <div class="div-9 dropZone" id="dropArea"> --}}
-        <div class="div-9" id="dropArea">
-          <div class="div-10">
-            <img loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/5429c0ca66db95123f5e11c9a2a546a0ed20ceacdf5ef55cc3b5c5a37d821a10?"
-              class="img-2" />
-            <input name="file" type="file" id="fileInput" class="div-1 form-control" hidden />
-            <p class="div-12">Drag & drop files here or <a class="browse-tag" href="#">Browse</a></p>
-            <div class="div-12">File type .pdf | Maximum 3mb</div>
-            <button class="div-0 btn btn-danger" type="submit">Submit</button>
-          </div>
-        </div>
-    </div>
-
-    
-      {{-- <div class="div-10">
-        <img loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/5429c0ca66db95123f5e11c9a2a546a0ed20ceacdf5ef55cc3b5c5a37d821a10?"
-          class="img-2" />
-        <input name="file" type="file" class="div-1 form-control" id="fileInput">
-        <div class="div-12">file type .pdf | maximum 3mb</div>
-        <button class="div-0" type="submit">Submit</button>
-      </div> --}}
-
+      
+      @section('updesc')
+          Upload Document
+      @endsection
+      @include('layout.drop-area')
     </div>
 
     @error('file')
@@ -86,7 +64,7 @@
 
 
   <style>
-    .browse-tag:hover{
+    .browse-tag:hover {
       color: #9c0404;
     }
 
@@ -123,15 +101,9 @@
     }
 
     .dropZone {
-      border: 2px dashed #9c0404;
       padding: 20px;
       text-align: center;
       cursor: pointer;
-    }
-
-    /* Highlight the drop zone when a file is dragged over it */
-    #dropZone.dragover {
-      background-color: #f6f6f6;
     }
 
     .div-0 {
@@ -259,27 +231,6 @@
       }
     }
 
-    .div-9 {
-      border-radius: 4px;
-      border: 1px solid #d1d1d6;
-      background-color: #f6f6f6;
-      display: flex;
-      margin-top: 16px;
-      flex-direction: column;
-      align-items: center;
-      white-space: nowrap;
-      padding: 45px 60px 29px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 991px) {
-      .div-9 {
-        max-width: 100%;
-        white-space: initial;
-        padding: 0 20px;
-      }
-    }
-
     .div-10 {
       align-items: center;
       display: flex;
@@ -332,30 +283,6 @@
   </style>
 
   <script>
-    // document.addEventListener('DOMContentLoaded', function() {
-    //       var dropArea = document.getElementById('dropArea');
-    //       var fileInput = document.getElementById('fileInput');
-
-    //       dropArea.addEventListener('dragover', function(e) {
-    //         e.preventDefault();
-    //         dropArea.classList.add('dragover');
-    //       });
-
-    //       dropArea.addEventListener('dragleave', function() {
-    //         dropArea.classList.remove('dragover');
-    //       });
-
-    //       dropArea.addEventListener('drop', function(e) {
-    //         e.preventDefault();
-    //         dropArea.classList.remove('dragover');
-
-    //         var files = e.dataTransfer.files;
-
-    //         if (files.length > 0) {
-    //           fileInput.files = files;
-    //           // You can also update the fileInput label or perform other actions
-    //         }
-    //       });
     const dropArea = document.getElementById("dropArea");
     const fileInput = document.getElementById("fileInput");
 

@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Storage;
 class DocumentController extends Controller
 {
     public function showAll(Request $request){
-        $docs = Documents::all();
         $sortBy = $request->query('sort_by', 'title'); 
         $sortOrder = $request->query('sort_order', 'asc'); 
     
@@ -18,6 +17,16 @@ class DocumentController extends Controller
 
         return view('home', compact('docs'));
     }
+
+    public function showAllUser(Request $request){
+        $sortBy = $request->query('sort_by', 'title'); 
+        $sortOrder = $request->query('sort_order', 'asc'); 
+    
+        $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+
+        return view('homeUser', compact('docs'));
+    }
+
 
     public function upload(Request $request){
         $request->validate([
@@ -100,6 +109,21 @@ class DocumentController extends Controller
     }
 
     public function searchProcess(Request $request){
+        
+        $searchResult = $request->input('search');
+
+        // Sorting
+        $sortBy = $request->query('sort_by', 'title'); 
+        $sortOrder = $request->query('sort_order', 'asc'); 
+
+        $docs = Documents::where('title', 'like', '%'. $searchResult . '%')
+        ->orderBy($sortBy, $sortOrder)
+        ->get();
+
+        return view('homeUser', compact('docs'));
+    }
+
+    public function searchProcessAdmin(Request $request){
         
         $searchResult = $request->input('search');
 
