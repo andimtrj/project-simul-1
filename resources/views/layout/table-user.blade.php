@@ -15,7 +15,7 @@
           <td class="max-desc">{{ $doc->description }}</td>
           <td>{{ $doc->updated_at }}</td>
           <td>
-            <a href="{{ route('versionpage', $doc->file_id) }}">
+            <a href="{{ route('versionpage', $doc->file_id) }}" class="a-icon">
               <img src="../assets/View.png" alt="View" class="action-button">
             </a>
           </td>
@@ -24,3 +24,13 @@
     </tbody>
   </table>
 </div>
+
+<style>
+  .a-icon img{
+    transition: transform 0.3s ease;
+  }
+
+  .a-icon:hover img{
+    transform: scale(1.5);
+  }
+</style>

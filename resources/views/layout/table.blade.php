@@ -15,13 +15,13 @@
           <td class="max-desc">{{ $doc->description }}</td>
           <td>{{ $doc->updated_at }}</td>
           <td>
-            <a href="{{ route('versionpageAdmin', $doc->file_id) }}" style="text-decoration: none">
+            <a href="{{ route('versionpageAdmin', $doc->file_id) }}" class="a-icon" style="text-decoration: none; margin-right:10px;">
               <img src="../assets/View.png" alt="View" class="action-button">
             </a>
-            <a href="{{ route('updatepage', $doc->file_id) }}" style="text-decoration: none">
+            <a href="{{ route('updatepage', $doc->file_id) }}" class="a-icon" style="text-decoration: none; margin-right:10px;">
               <img src="../assets/Update.png" alt="Update" class="action-button" style="height: 28px; width: auto;">
             </a>
-            <a data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}" style="text-decoration: none">
+            <a data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}" class="a-icon" style="text-decoration: none">
               <img src="../assets/Delete.png" alt="Delete" class="action-button">
             </a>
           </td>
@@ -54,3 +54,13 @@
   <a href ="{{ route('uploadpage') }}" class="img-8"><img loading="lazy" src="/assets/Button.png"
       style="height:90px; width:auto;" /></a>
 </div>
+
+<style>
+  .a-icon img{
+    transition: transform 0.3s ease;
+  }
+
+  .a-icon:hover img{
+    transform: scale(1.5);
+  }
+</style>
