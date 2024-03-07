@@ -22,7 +22,7 @@
                   aria-label="Search" style="width:90%">
         </form>
         <div class="dropdown d-flex justify-content-end align-self-end" style="width: 10%; height: 100%;">
-          <button class="btn btn-light dropdown-toggle w-aut" style="width: 30%" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+          <button class="btn btn-light dropdown-toggle w-aut" style="width: 80%" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
             aria-expanded="false">
             <i class="fa-solid fa-sort"></i>
           </button>
@@ -55,15 +55,15 @@
             <td>{{ $doc->updated_at }}</td>
             <td>
               <a href="{{ route('versionpage', $doc->file_id) }}">
-                <img src="assets/View.png" alt="View" class="action-button">
+                <img src="../assets/View.png" alt="View" class="action-button">
               </a>
               <a href="{{ route('updatepage', $doc->file_id) }}">
-                <img src="assets/Update.png" alt="Update" style="height: 28px; width: auto;">
+                <img src="../assets/Update.png" alt="Update" style="height: 28px; width: auto;">
               </a>
 
               {{-- Delete --}}
               <a data-bs-toggle="modal" data-bs-target="#updateModal{{ $doc->file_id }}">
-                <img src="assets/Delete.png" alt="Delete" class="action-button">
+                <img src="../assets/Delete.png" alt="Delete" class="action-button">
               </a>
             </td>
           </tr>

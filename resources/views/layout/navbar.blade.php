@@ -83,7 +83,7 @@
   window.addEventListener('scroll', function() {
     var navbar = document.getElementById('navbar');
     var scrollPosition = window.scrollY;
-    var transparency = 0.1;
+    var transparency = 0.5;
 
     if (scrollPosition > 0) {
       navbar.style.backgroundColor = 'rgba(255, 255, 255, ' + transparency + ')';
