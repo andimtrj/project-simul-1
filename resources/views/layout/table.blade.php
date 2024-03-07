@@ -28,26 +28,23 @@
         </tr>
 
         <!-- Delete Pop Up -->
-        <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1" aria-labelledby="updateModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content popup-delete">
-              <div class="modal-body text-center">
-                <div class="modal-title mb-3">Are you sure you want </br> to delete {{ $doc->title }}?</div>
-                <a href="#"
-                  onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
-                  <button class="btn btn-danger">Delete</button>
-                </a>
-                <!-- Delete Form -->
-                <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}"
-                  style="display: none;">
-                  @csrf
-                  @method('delete')
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="modal fade" id="updateModal{{ $doc->file_id }}" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content popup-delete">
+      <div class="modal-body text-center" style="max-width: 300px; overflow-wrap: break-word; text-break: word;">
+        <div class="modal-title mb-3">Are you sure you want <br> to delete {{ $doc->title }}?</div>
+        <a href="#" onclick="event.preventDefault(); document.getElementById('deleteForm_{{ $doc->file_id }}').submit();">
+          <button class="btn btn-danger">Delete</button>
+        </a>
+        <!-- Delete Form -->
+        <form action="{{ route('delete', $doc->file_id) }}" method="POST" id="deleteForm_{{ $doc->file_id }}" style="display: none;">
+          @csrf
+          @method('delete')
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
       @endforeach
     </tbody>
   </table>

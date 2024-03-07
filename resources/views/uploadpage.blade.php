@@ -231,8 +231,27 @@
       }
     }
 
-    .div-10 {
+    .div-9 {
+      border-radius: 4px;
+      border: 1px solid #d1d1d6;
+      background-color: #f6f6f6;
+      display: flex;
+      margin-top: 16px;
+      flex-direction: column;
       align-items: center;
+      white-space: nowrap;
+      padding: 45px 60px 29px;
+    }
+
+    @media (max-width: 991px) {
+      .div-9 {
+        max-width: 100%;
+        white-space: initial;
+        padding: 0 20px;
+      }
+    }
+
+    .div-10 {
       display: flex;
       width: 251px;
       max-width: 100%;
