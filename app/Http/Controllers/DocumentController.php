@@ -12,8 +12,8 @@ class DocumentController extends Controller
     public function showAll(Request $request){
         $sortBy = $request->query('sort_by', 'title'); 
         $sortOrder = $request->query('sort_order', 'asc'); 
-    
-        $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+        
+        $docs = Documents::orderBy($sortBy, $sortOrder)->paginate(2);
 
         return view('home', compact('docs'));
     }
@@ -22,8 +22,9 @@ class DocumentController extends Controller
         $sortBy = $request->query('sort_by', 'title'); 
         $sortOrder = $request->query('sort_order', 'asc'); 
     
-        $docs = Documents::orderBy($sortBy, $sortOrder)->get();
-
+        // $docs = Documents::orderBy($sortBy, $sortOrder)->get();
+        $docs = Documents::paginate(10);
+        
         return view('homeUser', compact('docs'));
     }
 
@@ -133,7 +134,9 @@ class DocumentController extends Controller
 
         $docs = Documents::where('title', 'like', '%'. $searchResult . '%')
         ->orderBy($sortBy, $sortOrder)
-        ->get();
+        ->paginate(2);
+        
+        $docs->appends(['search' => $searchResult]);
 
         return view('home', compact('docs'));
     }

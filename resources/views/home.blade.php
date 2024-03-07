@@ -92,6 +92,7 @@
         @endforeach
       </tbody>
     </table>
+    {{ $docs->links() }}
     <a href ="{{ route('uploadpage') }}" class="img-8"><img loading="lazy" src="/assets/Button.png"
         style="height:90px; width:auto;" /></a>
   </div>
