@@ -67,8 +67,8 @@
     }
 
     .popup-delete {
-      width: auto;
-      height: auto;
+      width: flex;
+      height: flex;
       align-items: center;
       align-content: center;
       justify-content: center;
